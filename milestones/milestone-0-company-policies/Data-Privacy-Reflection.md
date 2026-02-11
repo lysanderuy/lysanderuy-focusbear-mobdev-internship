@@ -29,6 +29,8 @@
 - **Disconnect affected systems** from the network, and revoke compromised credentials to prevent further unauthorized access.
 - **Assess the situation** by gathering details such as type of data involved, time occurred, and the like for further review
 
+---
+
 ## Reflection
 
 ### What steps can you take to ensure you handle data securely in your daily tasks?
@@ -57,6 +59,8 @@
 | Ignoring software updates                | Keep devices and software updated to patch security vulnerabilities                                         |
 | Using public Wi-Fi without protection    | When in public, avoid accessing sensitive information. Use VPN if necessary                                 |
 
+---
+
 ## Tasks
 
 ### Identify at least one habit or practice you can adopt to improve data security in your role.
@@ -66,3 +70,5 @@
 ### Document at least one key learning or security measure you will implement.
 
 - **Data Privacy and Security** should **never be taken for granted**. One tiny mistake in how you store or handle data could lead to compromising the entire system potentially. I will make sure that all data, in all stages of development from planning to deployment will have integrated data protection to avoid and minimize the risk of privacy breach especially in a system that is used by a lot of people.
+
+---

@@ -22,6 +22,8 @@
 
 - Start by acknowledging what the person has done or achieved. Highlight and identify the positive aspects and deliverables that were met. Think and speak objectively when giving feedback. Personal or biased comments should be avoided because the aim of a feedback is to get closer to what the team as a whole wants to achieve and so we need to be clear, specific and to not forget to balance constructive criticism with recognition of strengths. We can also end by offering actionable suggestions and comments
 
+---
+
 ## Reflection
 
 ### Have you ever experienced or witnessed great teamwork and professionalism? What made it effective?
@@ -62,6 +64,8 @@
   6. Not learning and taking in feedback
   7. Not escalating communication when needed
   8. Sending incomplete invites with no context like project title, or meeting agenda
+
+---
 
 ## Task
 

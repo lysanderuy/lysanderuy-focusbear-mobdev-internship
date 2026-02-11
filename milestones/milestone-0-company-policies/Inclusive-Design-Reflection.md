@@ -43,6 +43,8 @@ When designing or working with neurodivergent individuals, ethical consideration
 
 To support neurodivergent team members in a professional setting, we have to keep everything clear, predictable, and structured. We need to foster open communication and focus on creating an environment that values clarity, flexibility, and respect for different working styles.
 
+---
+
 ## Reflection
 
 ### How can you adjust your communication style to be more inclusive of neurodivergent users and teammates?
@@ -56,6 +58,8 @@ Personally, I think the layout of having cluttered and overwhelming interfaces, 
 ### What is one practical change you can make in your work to better support vulnerable populations?
 
 For some of the parts or pages that I mentioned, I could contribute practical help to better support vulnerable populations by simplifying the interface, while keeping in mind design considerations for them.
+
+---
 
 ## Task
 
@@ -71,3 +75,5 @@ I don't think this is directly a design or communication improvement, but a feat
 
 - **Sample Response:**
   "Hey! I know it can feel really overwhelming when there’s a lot to do, and that’s totally okay. Let’s try breaking things into tiny steps—maybe just pick one thing to focus on for the next 10 minutes, then take a quick break before the next. Little by little, you’ll get there, and I’m here to help you along the way!"
+
+---

@@ -215,4 +215,4 @@ Below are screenshots showing my Focus Bear tasks and subtasks used to log inter
 <img width="250" alt="image" src="https://github.com/user-attachments/assets/0318e373-495f-4f9b-a1f8-c6220822c289" />
 <img width="250" alt="image" src="https://github.com/user-attachments/assets/2a626ede-93c8-4a92-b113-3449fd2dc32d" />
 
-
+---
