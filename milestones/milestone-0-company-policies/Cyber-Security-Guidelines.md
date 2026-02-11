@@ -66,9 +66,9 @@ I would immediately report the incident to the appropriate team, manager, or to 
 
 I now have Two-Factor Authentication for not only my work account, but also personal accounts. I have also set security measures for my work device and made sure to automatically lock it after a certain time unattended.
 
-<img width="700" alt="Image" src="https://github.com/user-attachments/assets/84ce1006-6593-4b4d-b7ab-536355805834" />
-<img width="700" alt="Image" src="https://github.com/user-attachments/assets/07c23b2a-7a00-4f4e-94ef-e2a46f5cc355" />
-<img width="600" alt="Image" src="https://github.com/user-attachments/assets/8c116fdc-9534-42e6-89ef-eda9292b4e52" />
-<img width="300" alt="Image" src="https://github.com/user-attachments/assets/a711d949-9f8e-4806-869e-dddf8ab1931b" />
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/84ce1006-6593-4b4d-b7ab-536355805834" />
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/07c23b2a-7a00-4f4e-94ef-e2a46f5cc355" />
+<img width="650" alt="Image" src="https://github.com/user-attachments/assets/8c116fdc-9534-42e6-89ef-eda9292b4e52" />
+<img width="400" alt="Image" src="https://github.com/user-attachments/assets/a711d949-9f8e-4806-869e-dddf8ab1931b" />
 
 ---
