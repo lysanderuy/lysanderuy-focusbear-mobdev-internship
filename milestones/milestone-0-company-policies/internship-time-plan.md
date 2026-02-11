@@ -204,3 +204,15 @@ This detailed timeline outlines how I will allocate dedicated and sufficient hou
 - Schedules may vary or change depending on academic workload.
 - Any changes will still ensure that the target weekly hours will be met.
 - **Weekends (Saturday & Sunday) are reserved for personal time and will not count towards internship hours.**
+
+---
+
+## Focus Bear Task Logging
+
+Below are screenshots showing my Focus Bear tasks and subtasks used to log internship hours.
+
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/f28a3cb6-091d-4366-8a00-30d4b5aea468" />
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/0318e373-495f-4f9b-a1f8-c6220822c289" />
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/2a626ede-93c8-4a92-b113-3449fd2dc32d" />
+
+
