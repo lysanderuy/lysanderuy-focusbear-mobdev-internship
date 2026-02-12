@@ -122,7 +122,8 @@ I appreciate it when teammates:
 
 One thing people often misunderstand about me is:
 
-- If I become very quiet during long work sessions, it usually means I’m deeply focused and trying to lock in — not that I’m in a bad mood.
+- If I become very quiet during long work sessions, it usually means I’m deeply focused and trying to
+  lock in — not that I’m in a bad mood.
 
 A fun fact about me:
 
@@ -130,6 +131,5 @@ A fun fact about me:
 
 My work superpower is:
 
-- It may take me a bit to fully settle into focus, but once I truly lock in, I become extremely focused and can deliver exceptional output.
-
----
+- It may take me a bit to fully settle into focus, but once I truly lock in, I become extremely focused and
+  can deliver exceptional output.

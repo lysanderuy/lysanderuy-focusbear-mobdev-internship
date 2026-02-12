@@ -2,7 +2,7 @@
 
 ## Research Questions
 
-### What are examples of professional vs. unprofessional behaviour in a casual work environment?
+### What are examples of professional vs. unprofessional behaviour in a casual work environment
 
 | Aspect                   | Professional Behaviour                                                                       | Unprofessional Behaviour                                                                          |
 | ------------------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -14,48 +14,72 @@
 |                          | Recognize, appreciate and acknowledge the work of team members                               | Gossip, or create a hostile and negative environment through disrespectful behaviour and comments |
 | Appearance & Punctuality | Dress appropriately, respect time and others' schedule, meet deadlines                       | Always late, poor grooming, miss deadlines without notice                                         |
 
-### What does respectful communication look like in remote teams?
+### What does respectful communication look like in remote teams
 
-- In remote teams, respectful communication starts with being clear and timely. You have to be extra mindful of the tone, since it is easy to misinterpret things online. It also involves acknowledging others' messages promptly, even if a full response will come later.
+- In remote teams, respectful communication starts with being clear and timely. You have to be extra mindful of the
+  tone, since it is easy to misinterpret things online. It also involves acknowledging others' messages promptly,
+  even if a full response will come later.
 
-### How can you give and receive feedback professionally?
+### How can you give and receive feedback professionally
 
-- Start by acknowledging what the person has done or achieved. Highlight and identify the positive aspects and deliverables that were met. Think and speak objectively when giving feedback. Personal or biased comments should be avoided because the aim of a feedback is to get closer to what the team as a whole wants to achieve and so we need to be clear, specific and to not forget to balance constructive criticism with recognition of strengths. We can also end by offering actionable suggestions and comments
+- Start by acknowledging what the person has done or achieved. Highlight and identify the positive aspects and
+  deliverables that were met. Think and speak objectively when giving feedback. Personal or biased comments should
+  be avoided because the aim of a feedback is to get closer to what the team as a whole wants to achieve and so we
+  need to be clear, specific and to not forget to balance constructive criticism with recognition of strengths.
+  We can also end by offering actionable suggestions and comments
 
 ---
 
 ## Reflection
 
-### Have you ever experienced or witnessed great teamwork and professionalism? What made it effective?
+### Have you ever experienced or witnessed great teamwork and professionalism? What made it effective
 
-- Yes, the number one reason that I think made our team have good chemistry and worked efficiently was that all members shared the same interest for our end goal. I've noticed times where someone on the team seems disengaged, and it actually affects the team indirectly. Another factor that contributed to effectivity was clear and open communication. During planning, everyone had their take, we all came up with a plan and everything went smoothly. During problems, it would be easily resolved because everyone is open to communicate. Overall, showing dedication and willingness to help and communicate really brings the team far.
+- Yes, the number one reason that I think made our team have good chemistry and worked efficiently was that all
+  members shared the same interest for our end goal. I've noticed times where someone on the team seems disengaged,
+  and it actually affects the team indirectly. Another factor that contributed to effectivity was clear and open
+  communication. During planning, everyone had their take, we all came up with a plan and everything went smoothly.
+  During problems, it would be easily resolved because everyone is open to communicate. Overall, showing dedication
+  and willingness to help and communicate really brings the team far.
 
-### What steps can you take to make sure your communication is clear, respectful, and inclusive?
+### What steps can you take to make sure your communication is clear, respectful, and inclusive
 
 1. Use simple and clear language. Avoid using too much jargon, acronyms, and complicated vocabulary.
 2. Allowing space for others to speak as well
 3. Be mindful of cultural and linguistic diversity by avoiding slangs, or terms that may not translate well.
 4. Listen beyond what others are saying. Be empathetic to your peers.
 
-### How can you help create a positive, fun, and professional work environment?
+### How can you help create a positive, fun, and professional work environment
 
-- To help create a positive, fun, and professional work environment, I would focus on fostering respect, clear and open communication, and inclusivity in the things I do. It is important to create a balance between staying on track with deliverables and focusing on building your bond as a team.
+- To help create a positive, fun, and professional work environment, I would focus on fostering respect, clear and
+  open communication, and inclusivity in the things I do. It is important to create a balance between staying on track
+  with deliverables and focusing on building your bond as a team.
 
-### How can you prepare effectively for meetings with supervisors and colleagues?
+### How can you prepare effectively for meetings with supervisors and colleagues
 
-- To prepare effectively for meetings with supervisors and colleagues, I would study and review necessary materials for the meeting. I would outline and plan the flow and agenda for the meeting. I would also prepare visual and verbal materials to aid in the presentation proper. Overall, being prepared ensures that the meeting goes smoothly, and any conflicts or questions that come up are resolved directly.
+- To prepare effectively for meetings with supervisors and colleagues, I would study and review necessary materials
+  for the meeting. I would outline and plan the flow and agenda for the meeting. I would also prepare visual and
+  verbal materials to aid in the presentation proper. Overall, being prepared ensures that the meeting goes smoothly,
+  and any conflicts or questions that come up are resolved directly.
 
-### What would it look like to be proactive during your internship?
+### What would it look like to be proactive during your internship
 
-- Being proactive as an intern generally means to not just sit around doing nothing or waiting to be told. Being proactive would mean taking initiative, regularly updating on your progress, and doing more than what is assigned. Asking for feedback, working with dedication and actively learning on the go highlights being proactive in a team setting.
+- Being proactive as an intern generally means to not just sit around doing nothing or waiting to be told. Being
+  proactive would mean taking initiative, regularly updating on your progress, and doing more than what is assigned.
+  Asking for feedback, working with dedication and actively learning on the go highlights being proactive in a
+  team setting.
 
-### How might you follow up with colleagues or supervisors if you need information/action from them? How would you escalate it further if you don't get a response and when would you escalate?
+### How might you follow up with colleagues or supervisors if you need information/action from them? How would you escalate it further if you don't get a response and when would you escalate
 
-- Following up or messaging your colleagues or supervisors regarding a specific matter would begin with the lightest touch and escalate depending on urgency. It would start with e-mailing for general queries, messaging on the Discord channels for medium-priority matters, SMS for discussions that are more urgent and a call for emergencies. You should start with emailing, and if its a little more important but it has been days without a reply, you could follow up on Discord if needed.
+- Following up or messaging your colleagues or supervisors regarding a specific matter would begin with the lightest
+  touch and escalate depending on urgency. It would start with e-mailing for general queries, messaging on the
+  Discord channels for medium-priority matters, SMS for discussions that are more urgent and a call for emergencies.
+  You should start with emailing, and if its a little more important but it has been days without a reply, you could
+  follow up on Discord if needed.
 
-### What are some things you won't do?
+### What are some things you won't do
 
-- During the internship, the most important thing to focus on is learning and growing, but a few habits might cause frustrations, or delay things:
+- During the internship, the most important thing to focus on is learning and growing, but a few habits might cause
+  frustrations, or delay things:
   1. Sitting in idle, and not taking initiative
   2. Being unprepared for meetings and discussions
   3. Not taking notes during meetings
