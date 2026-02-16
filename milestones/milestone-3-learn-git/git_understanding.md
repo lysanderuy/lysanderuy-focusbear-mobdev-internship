@@ -262,7 +262,3 @@ It allows us to check who last changed a line from a file or look at the commit 
 
 What surprise me was how easy to use these commands were. At first, they seem like commands I should never touch, but I
 realized that they were precise and powerful and that they are very useful for my everyday work.
-
----
-
-## Merge Conflicts
