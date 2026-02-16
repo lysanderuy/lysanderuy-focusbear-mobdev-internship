@@ -19,7 +19,8 @@ I chose Windows Terminal because I like its modern interface and the ability to 
 ### What customizations (if any) did you make
 
 I customized it using **Oh My Posh** with **Nerd Fonts** and changed the PowerShell color scheme to make it cleaner
-and easier on the eyes. I also added a few extensions/modules to improve functionality: **ZLocations** for quick folder navigation, **PSReadLine** for enhanced command line editing, and **PSFZF** for fuzzy searching through
+and easier on the eyes. I also added a few extensions/modules to improve functionality: **ZLocations** for quick folder
+navigation, **PSReadLine** for enhanced command line editing, and **PSFZF** for fuzzy searching through
 commands and files. These make working in the terminal faster and more efficient.
 
 ### What was the most useful command you learned today
