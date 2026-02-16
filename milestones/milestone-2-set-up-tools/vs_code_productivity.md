@@ -32,9 +32,9 @@
 
 ### Which shortcuts do you think will be the most useful in your daily work?
 
-The shortcuts I’ll probably use the most are **Ctrl + Shift + P** and **Ctrl + `**. The Command Palette makes it easy to find
-commands without digging through menus, and the integrated terminal is something I open all the time when running
-builds or testing the app.
+The shortcuts I’ll probably use the most are **Ctrl + Shift + P** and **Ctrl + `**. The Command Palette makes it easy
+to find commands without digging through menus, and the integrated terminal is something I open all the time when
+running builds or testing the app.
 
 For editing, **Alt + ↑/↓** and **Shift + Alt + ↓/↑** are really useful when rearranging or duplicating code, especially
 when working on UI layouts. I also rely a lot on **Ctrl + /** to quickly comment and uncomment code while debugging or
