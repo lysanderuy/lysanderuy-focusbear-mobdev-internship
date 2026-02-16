@@ -12,7 +12,8 @@ currently on that specific branch.
   <img width="350" alt="Image" src="https://github.com/user-attachments/assets/7ece190b-943f-49ec-a041-664641ab4c61" />
 </p>
 
-I have also created a new folder named **milestone/03-learn-git** added a file specific for issue #47: Pull Requests which I will also be creating a Pull Request for later on.
+I have also created a new folder named **milestone/03-learn-git** added a file specific for issue #47: Pull Requests
+which I will also be creating a Pull Request for later on.
 
 <p align=center>
 <img width="400" alt="Image" src="https://github.com/user-attachments/assets/1e650879-ffc2-4478-8f01-eff966ab68fc" />
