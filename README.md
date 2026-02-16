@@ -1,6 +1,8 @@
 # Focus Bear Mobile Dev Internship - Onboarding
 
-This repo contains my onboarding tasks as a Mobile Development Intern at Focus Bear, organized by milestones and issues.
+Hi! 👋
+
+This repo contains my onboarding tasks as a Mobile Development Intern at **Focus Bear**, organized by **milestones** and **issues**.
 
 ---
 
@@ -21,8 +23,8 @@ milestone/
 ```
 
 - Each milestone folder has files for its tasks/issues.
-- Each task corresponds to a GitHub Issue.
-- Milestones are worked on in separate branches and merged after completion.
+- Each task corresponds to a **GitHub Issue**.
+- Milestones are worked on in **separate branches** and merged after completion.
 
 ---
 
@@ -30,9 +32,9 @@ milestone/
 
 1. Create a branch for the milestone (e.g., `milestone/03-learn-git`).
 2. Work on an issue in that branch.
-3. Commit changes with clear messages.
+3. Commit changes with **clear messages**.
 4. Push to GitHub.
-5. Open a Pull Request linking the issue.
+5. Open a **Pull Request** linking the issue.
 6. Get feedback, update if needed, then merge.
 7. Delete the branch after merging.
 
