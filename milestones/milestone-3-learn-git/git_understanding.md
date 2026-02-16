@@ -1,6 +1,6 @@
 # Onboarding Task - Pull Requests
 
-## Research Questions
+## Pull Requests
 
 ### Creating a new branch
 
@@ -9,21 +9,21 @@ the milestone. The figure below shows the list of all current branches, and the 
 currently on that specific branch.
 
 <p align=center>
-  <img width="350" alt="Image" src="https://github.com/user-attachments/assets/7ece190b-943f-49ec-a041-664641ab4c61" />
+  <img width="250" alt="Image" src="https://github.com/user-attachments/assets/7ece190b-943f-49ec-a041-664641ab4c61" />
 </p>
 
 I have also created a new folder named **milestone/03-learn-git** added a file specific for issue #47: Pull Requests
 which I will also be creating a Pull Request for later on.
 
 <p align=center>
-<img width="400" alt="Image" src="https://github.com/user-attachments/assets/1e650879-ffc2-4478-8f01-eff966ab68fc" />
+<img width="250" alt="Image" src="https://github.com/user-attachments/assets/1e650879-ffc2-4478-8f01-eff966ab68fc" />
 </p>
 
 ---
 
-## Reflections
+### Reflections on Pull Requests
 
-### Why are PRs important in a team workflow?
+#### Why are PRs important in a team workflow?
 
 Pull Requests (PRs) are like merge requests that you create after adding a feature, fixing a bug, or making changes
 on a separate branch to another branch. PRs serve as the central hub where team members review code, discuss necessary
@@ -31,16 +31,89 @@ matters, and collaborate with others. It allows members to examine proposed chan
 or reject the request before it becomes a part of the main codebase. Pull Requests is a collaborative workflow that
 strengthens and guides software development through collaboration and reviews.
 
-### What makes a well-structured PR?
+#### What makes a well-structured PR?
 
 Generally, a short indicator of a well-structured PR is when someone is able to review it quickly and know exactly
 where to check or what to look for. A well-structured PR must contain proper formatting with regards to title, headers,
 and descriptions of the changes.
 
-### What did you learn from reviewing an open-source PR?
+#### What did you learn from reviewing an open-source PR?
 
 Personally, I initially thought PRs were only done when a huge block of tasks or code changes happen. I was shocked to
 see that even the smallest of changes like linting were documented into a PR. I learned the importance of creating
 a well-structured PR because it makes reviewing a lot easier. Even as someone who is not a part of the projects
 in the open-source PR examples, I can immediately understand what these requests include and why they were created.
 PRs can also serve as a tool for learning, sharing knowledge, and improving the project together.
+
+---
+
+## Commit Messages
+
+### My commit messages
+
+1. Vague commit message.
+
+<p align=center>
+  <img width="700" alt="Image" src="https://github.com/user-attachments/assets/b08552a5-70aa-4324-b77c-d9ce18ea9648" />
+</p>
+
+- **Commit message:** "tweaked things"
+- **Changes:**
+  ```markdown
+  # Focus Bear Mobile Dev Internship - Onboarding
+  ```
+
+2. An overly detailed commit message.
+
+<p align=center>
+  <img width="700"  alt="Image" src="https://github.com/user-attachments/assets/02dca6d4-3749-4011-a2ab-19fe221b077b" />
+</p>
+
+- **Commit message:** "Added full README content including repo structure, workflow steps, milestone overview table,
+  and notes section. Detailed all milestone numbers (0–8) with descriptions, added folder tree code block for clarity,
+  and explained how tasks link to GitHub issues and how branches are organized for onboarding.
+  "`
+- **Changes:**
+  - Added the full README content after the title, including:
+    - Repo Structure section with folder tree
+    - Workflow section explaining branches, issues, and PRs
+    - Milestones Overview table (0–8) with descriptions
+    - Notes section explaining task links and maintainability
+
+3. A well-structured commit message.
+
+<p align=center>
+  <img width="700"  alt="Image" src="https://github.com/user-attachments/assets/4afc02f4-dc99-41b7-b824-19f74968ee42" />
+</p>
+
+- **Commit message:** "docs: complete onboarding README with workflow, milestones, and repo structure"
+- **Changes:**
+  - Minor refinements to formatting and readability:
+    - Added emojis for clarity and engagement
+    - Bolded key points for emphasis
+    - Fixed small typos and adjusted headings
+    - Ensured all links and notes are clear and consistent
+
+## Reflections on Commit Messages
+
+### What makes a good commit message?
+
+A good commit message should give the readers a jist of what changes to expect in your commits. It should clearly
+explain what changes were made, and if relevant, why they were made. A common structure followed by most companies
+and development teams today starts with a type (feat: ,docs: , fix: , etc.) and a description in an imperative
+mood ("add initial landing page UI").
+
+### How does a clear commit message help in team collaboration?
+
+Clear commit messages help your team understand whats happening at a glance. It is especially useful in code reviews,
+discussions, debugging, and mergin branches. When every follows this practice of using consistent and well-structured
+commit messages, it becomes sort of a reliable record of changes that allow everyone to work efficiently without
+having to dig through code to figure out whats happening.
+
+### How can poor commit messages cause issues later?
+
+Poor commit messages like "fixed stuff" can create confusion and slow down development. It takes away the purpose of
+commit messages being clear and concise that allows everyone to understand and predict incoming changes. Poor commit
+messages make it harder for teammates to fully get what a commit does or why it was created. Over time, unclear
+messages make the project history messy and difficult to maintain, making it harder for new members to catch up and
+understand past changes as well.
