@@ -1,1 +1,1 @@
-# lysanderuy-focusbear-internship
+# Focus Bear Mobile Dev Internship - Onboarding
