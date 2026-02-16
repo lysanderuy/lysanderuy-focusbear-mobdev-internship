@@ -2,13 +2,15 @@
 
 Hi! 👋
 
-This repo contains my onboarding tasks as a Mobile Development Intern at **Focus Bear**, organized by **milestones** and **issues**.
+This repo contains my onboarding tasks as a Mobile Development Intern at **Focus Bear**, organized by **milestones**
+
+and **issues**.
 
 ---
 
 ## Repo Structure
 
-```
+```plaintext
 milestone/
 ├─ 0-company-policies
 ├─ 0-working-in-agile-team
