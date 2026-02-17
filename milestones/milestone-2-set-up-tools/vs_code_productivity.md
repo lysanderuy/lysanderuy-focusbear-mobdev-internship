@@ -1,4 +1,4 @@
-# Onboarding Task - Set up VS Code and learn Keyboard shorcuts
+# Onboarding Task - Set up VS Code and learn Keyboard shortcuts
 
 ## Keyboard Shortcuts
 

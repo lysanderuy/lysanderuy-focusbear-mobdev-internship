@@ -14,7 +14,7 @@ prevent strain and discomfort.
 - Using a laptop without these peripherals can lead to **Ergonomic and Health Risks**
   - where _Neck and Back Pain_ becomes a problem as the screen is below eye level forcing the user to look down which
     leads to slouching, upper back pain, and neck strain over time.
-  - where _Wrist and Hand Strain_ becomes a problem as typing on the laptop keyboard and using its trackpad requires
+  - where _Wrist and Hand Strain_ becomes a problem as typing on the laptop keyboard and using its track pad requires
     awkward wrist positions which increases the risk of repetitive strain injuries like **Carpal Tunnel Syndrome**.
 - It also raises **Usability and Performance Risks**
   - where _Productivity Reduces_ too as the awkward positions required to effectively use the laptop keyboard makes

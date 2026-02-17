@@ -1,4 +1,4 @@
-# Onboarind Task - Working in an Agile Team
+# Onboarding Task - Working in an Agile Team
 
 ## Research Questions
 
@@ -23,10 +23,10 @@ The Agile Manifesto embodies, but are not limited to, these following principles
 ### What are the differences between Scrum and Kanban, and when is each used
 
 The main difference between Scrum and Kanban is with there specific approach for project management and development.
-Scrum is naturally more systamic in many ways when it comes to planning, holding meetings, and other ceremonies. Scrum
+Scrum is naturally more systematic in many ways when it comes to planning, holding meetings, and other ceremonies. Scrum
 is still flexible in nature but requirements are usually discussed and laid out before the start of each sprint.
 Scrum is ideal for projects with evolving requirements that benefit from structured planning, and frequent reviews.
-Kanban on the other hand is more flexible and continuoes. It uses a Kanban board to track tasks, monitor progress, and manage
+Kanban on the other hand is more flexible and continuous. It uses a Kanban board to track tasks, monitor progress, and manage
 priorities. There are no fixed iterations, and planning is done on the go making it more useful for changing priorities
 and workloads. It is better suited for projects with continuous delivery needs.
 
@@ -59,7 +59,7 @@ directly addresses real user needs.
 
 ### Summarize the main differences between Scrum and Kanban in your own words
 
-I would describe Scrum as "Structured." Meetings, plannings, and other ceromonies are scheduled ahead and at
+I would describe Scrum as "Structured." Meetings, plannings, and other ceremonies are scheduled ahead and at
 dedicated time slots. Everything is systematics when it comes to Scrum. On the other hand, I see Kanban somewhat as
 a "Go with the flow" approach where everything is continuous and happens on the move.
 

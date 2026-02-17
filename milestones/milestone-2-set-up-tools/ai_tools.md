@@ -13,7 +13,7 @@ browser incase of needed assistance.
 
 ## Experiment
 
-I tried to create a simple javascript funtion with an intentional error.
+I tried to create a simple javascript function with an intentional error.
 
 ```javascript
 function isEven(num) {
@@ -47,7 +47,7 @@ the same error to ChatGPT and Claude and both gave the same results.
 
 ### What worked well? What didn’t?
 
-Honestly, all three worked quited well. However, I personally like to use ChatGPT and GitHub Copilot as my primary
+Honestly, all three worked quite well. However, I personally like to use ChatGPT and GitHub Copilot as my primary
 tool for coding when I need assistance.
 
 ### When do you think AI is most useful for coding?

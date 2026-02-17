@@ -4,7 +4,7 @@
 
 ### How does a Kanban board work, and how does it help manage workflow
 
-A Kanban board works by visualizing a team's progress from requesition and commitment point all the way up to delivery
+A Kanban board works by visualizing a team's progress from requisition and commitment point all the way up to delivery
 point. Tasks are presented as Kanban cards that swim through stages in development. As a developer assigned for that
 card, you update status based on current progress, and as your progress increases, the closer you get to the end column
 or delivery point.

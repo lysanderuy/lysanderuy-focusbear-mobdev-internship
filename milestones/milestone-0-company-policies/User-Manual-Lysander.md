@@ -28,7 +28,7 @@ I do my best work when:
 I struggle when:
 
 - Instructions are vague or constantly changing.
-- I’m interrupted frequently or multitasked.
+- I’m interrupted frequently.
 - Meetings go on without clear outcomes.
 - The environment is noisy or has a lot of movement.
 - I don’t have a clear set of tasks to do in order beforehand.

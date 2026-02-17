@@ -6,7 +6,7 @@
 
 - **Freedom-** A productivity app that mainly offers blocklisting, sessions, and scheduling.
 - **Cold Turkey -** Mainly a blocker app that allows you to keep your focus on more important matters.
-- **Tiimo -** A visual planner that helps layout plans for the day, or week. Allows syncronization across Apple
+- **Tiimo -** A visual planner that helps layout plans for the day, or week. Allows synchronization across Apple
   devices for constant reminder and aids in anticipating what comes next on your day.
 - **Routinery -** A habit building app that allows users to create and lay out habits for the day.
 
