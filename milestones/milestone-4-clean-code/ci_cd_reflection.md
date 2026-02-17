@@ -3,7 +3,8 @@
 ## Automated Checks
 
 I set up a custom Markdown linting configuration for this repository, then added a spell checker to catch typos.
-Finally, I created a GitHub Actions CI workflow that automatically runs both linting and spell checks on all pull requests.
+Finally, I created a GitHub Actions CI workflow that automatically runs both linting and spell checks on all pull
+requests.
 
 The image below shows errors triggered by the workflow when rules or spelling issues are violated.
 
