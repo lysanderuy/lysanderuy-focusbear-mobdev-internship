@@ -3,7 +3,6 @@
 Hi! 👋
 
 This repo contains my onboarding tasks as a Mobile Development Intern at **Focus Bear**, organized by **milestones**
-
 and **issues**.
 
 ---

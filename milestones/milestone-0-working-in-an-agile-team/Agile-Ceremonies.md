@@ -34,7 +34,7 @@ that everyone is still aligned on the goals set, progress, and priorities.
 
 ### Which ceremony do you think is most important for your role, and why
 
-I think the most importante ceremony as a Mobile App Developer would be the sprint planning. As a developer,
+I think the most important ceremony as a Mobile App Developer would be the sprint planning. As a developer,
 it is important to have everything laid out properly to ensure that work is aligned with what the team needs.
 Planning for tasks, deliverables and what the end goal is allows developers to code and build with vision,
 and not just go blindly.

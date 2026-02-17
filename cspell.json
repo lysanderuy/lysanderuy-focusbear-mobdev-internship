@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "explorable",
+    "behaviour",
+    "Behaviour",
+    "behavioural",
+    "LGBTQ",
+    "Cyberbullying",
+    "inclusivity",
+    "incase",
+    "timeboxed",
+    "blocklisting",
+    "Tiimo",
+    "Routinery",
+    "builting",
+    "blocklists",
+    "Blocklists",
+    "AUDHD",
+    "reflog",
+    "PSFZF",
+    "oneline",
+    "Afterwhich"
+  ],
+  "ignorePaths": ["node_modules/**", "dist/**"]
+}

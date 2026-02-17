@@ -97,7 +97,7 @@ A well-structured commit message.
 
 #### What makes a good commit message
 
-A good commit message should give the readers a jist of what changes to expect in your commits. It should clearly
+A good commit message should give the readers a gist of what changes to expect in your commits. It should clearly
 explain what changes were made, and if relevant, why they were made. A common structure followed by most companies
 and development teams today starts with a type (feat: ,docs: , fix: , etc.) and a description in an imperative
 mood ("add initial landing page UI").
@@ -105,7 +105,7 @@ mood ("add initial landing page UI").
 #### How does a clear commit message help in team collaboration
 
 Clear commit messages help your team understand whats happening at a glance. It is especially useful in code reviews,
-discussions, debugging, and mergin branches. When every follows this practice of using consistent and well-structured
+discussions, debugging, and merging branches. When every follows this practice of using consistent and well-structured
 commit messages, it becomes sort of a reliable record of changes that allow everyone to work efficiently without
 having to dig through code to figure out whats happening.
 
@@ -282,7 +282,7 @@ I then used VSCode's merge editor to resolve the conflict and decide which chang
 
 #### What caused the conflict
 
-I intentionally edited a line on a test file on a new separate branch, `test-conflict. I committed these changes,
+I intentionally edited a line on a test file on a new separate branch, `test-conflict`. I committed these changes,
 went into the `main` branch and edited the same line on the same file. Then, I also committed these changes.
 Afterwhich, I tried to merge both branches, and that's where the conflict was detected.
 
@@ -336,7 +336,7 @@ hand, is like sealing the package and sending it. Officially saving those change
 #### Why does Git separate these two steps?
 
 Git does this so that you can choose what exactly you are putting onto your next commit. By separating both
-staging and comitting, commits are kept clean and organized. It prevents accidental commits of unfinished work and
+staging and committing, commits are kept clean and organized. It prevents accidental commits of unfinished work and
 also makes commit history much easier to understand.
 
 #### When would you want to stage changes without committing?
