@@ -1,0 +1,55 @@
+[config]
+auto_describe = true
+auto_review = true
+auto_improve = false
+
+#################################
+# PR DESCRIPTION CONFIGURATION
+#################################
+
+[describe]
+generate_pr_title = true
+use_bullets = true
+max_description_tokens = 500
+
+extra_instructions = """
+Generate a clear, professional, and concise pull request description.
+
+Use the following structure:
+
+## Summary
+Briefly explain what this PR does and why the change was made.
+
+## Changes
+- List the main modifications
+- Keep points concise and technical
+- Group related changes logically
+
+## Testing
+Explain how the changes were tested (if applicable).
+
+## Notes
+Mention anything reviewers should know (documentation-only, no functional changes, breaking changes, CI updates, etc.).
+
+Guidelines:
+- Do not use emojis.
+- Keep tone professional.
+- Avoid unnecessary verbosity.
+- Do not repeat obvious information.
+"""
+
+#################################
+# CODE REVIEW CONFIGURATION
+#################################
+
+[review]
+extra_instructions = """
+Review for:
+- Code clarity and readability
+- Clean structure and maintainability
+- Best practices
+- Potential bugs or edge cases
+
+Provide concise, constructive, and actionable feedback.
+Do not use emojis.
+"""
