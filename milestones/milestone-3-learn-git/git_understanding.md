@@ -267,7 +267,7 @@ realized that they were precise and powerful and that they are very useful for m
 
 ## Merge Conflicts
 
-### Creating a merge conflict (branch: test-conflict)
+### Creating a merge conflict
 
 I created a merge conflict by editing on the same line inside the same file in `main` and on my test
 branch, `test-conflict`, which I will only be using for testing and will be deleting later.
@@ -280,21 +280,44 @@ I then used VSCode's merge editor to resolve the conflict and decide which chang
 
 ### Reflections in Merge Conflicts
 
-#### What caused the conflict?
+#### What caused the conflict
 
 I intentionally edited a line on a test file on a new separate branch, `test-conflict. I committed these changes,
 went into the `main` branch and edited the same line on the same file. Then, I also committed these changes.
 Afterwhich, I tried to merge both branches, and that's where the conflict was detected.
 
-#### How did you resolve it?
+#### How did you resolve it
 
 Before staging the change, I first had to resolve the conflict by using VSCode's merge editor to see side by side the
 differences in a file. When I got to the line that I edited on both files, I was able to carefully decide which change
 to accept and so I decided and was able to resolve the merge.
 
-#### What did you learn?
+#### What did you learn
 
 I learned that merge conflicts happen when the same part of a file is changed in two branches and Git can’t figure out
 which one to keep. You have to look at both versions and decide what makes sense. Using VSCode’s merge editor made it
 easier to see the differences and fix the conflict. Doing this made me understand how to handle changes safely when
 working with others.
+
+---
+
+## Branching and Team Collaboration
+
+### Reflections in Branching and Team Collaboration
+
+#### Why is pushing directly to main problematic
+
+Publishing directly onto the main branch may and with higher risks, introduce a bug or even break the entire project.
+When you publish directly without working on your own separate branch, your team will be unable to review changes
+before going live. It also makes tracking of who made changes or why a lot harder.
+
+#### How do branches help with reviewing code
+
+Branches allow isolated work where developers can build, or test without affecting the main branch. It allows you to
+create Pull Requests where changes can be reviewed before merging onto main. Lastly, it makes testing or adding
+features much safer as you are working on a branch outside the main project.
+
+#### What happens if two people edit the same file on different branches
+
+When two people edit the same file on different branches, Git may detect a merge conflict when trying to merge
+these two branches. It would require manual resolution to decide which changes to keep or discard.
