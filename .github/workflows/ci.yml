@@ -23,4 +23,4 @@ jobs:
         run: npm run lint:md
 
       - name: Run spell check
-        run: npx cspell "milestone/**/*.md"
+        run: npx cspell "milestones/**/*.md"
