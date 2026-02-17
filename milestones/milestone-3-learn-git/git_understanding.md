@@ -321,3 +321,26 @@ features much safer as you are working on a branch outside the main project.
 
 When two people edit the same file on different branches, Git may detect a merge conflict when trying to merge
 these two branches. It would require manual resolution to decide which changes to keep or discard.
+
+---
+
+## Staging vs Committing
+
+### Reflections in Staging vs Committing
+
+#### What is the difference between staging and committing?
+
+Staging is like preparing a package, where you select which changes go into the next commit. Committing on the other
+hand, is like sealing the package and sending it. Officially saving those changes into your project history.
+
+#### Why does Git separate these two steps?
+
+Git does this so that you can choose what exactly you are putting onto your next commit. By separating both
+staging and comitting, commits are kept clean and organized. It prevents accidental commits of unfinished work and
+also makes commit history much easier to understand.
+
+#### When would you want to stage changes without committing?
+
+You stage changes when you are still working but want to group changes logically. Staging without committing is also
+useful when you want to commit only a part of your work, or is also helpful when you want to review and compare
+changes before finalizing them.
