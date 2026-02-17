@@ -262,3 +262,39 @@ It allows us to check who last changed a line from a file or look at the commit 
 
 What surprise me was how easy to use these commands were. At first, they seem like commands I should never touch, but I
 realized that they were precise and powerful and that they are very useful for my everyday work.
+
+---
+
+## Merge Conflicts
+
+### Creating a merge conflict (branch: test-conflict)
+
+I created a merge conflict by editing on the same line inside the same file in `main` and on my test
+branch, `test-conflict`, which I will only be using for testing and will be deleting later.
+
+<p align=center>
+  <img width="300" alt="Image" src="https://github.com/user-attachments/assets/fb42188e-63ce-46ca-807e-f9393680d27e" />
+</p>
+
+I then used VSCode's merge editor to resolve the conflict and decide which change to accept.
+
+### Reflections in Merge Conflicts
+
+#### What caused the conflict?
+
+I intentionally edited a line on a test file on a new separate branch, `test-conflict. I committed these changes,
+went into the `main` branch and edited the same line on the same file. Then, I also committed these changes.
+Afterwhich, I tried to merge both branches, and that's where the conflict was detected.
+
+#### How did you resolve it?
+
+Before staging the change, I first had to resolve the conflict by using VSCode's merge editor to see side by side the
+differences in a file. When I got to the line that I edited on both files, I was able to carefully decide which change
+to accept and so I decided and was able to resolve the merge.
+
+#### What did you learn?
+
+I learned that merge conflicts happen when the same part of a file is changed in two branches and Git can’t figure out
+which one to keep. You have to look at both versions and decide what makes sense. Using VSCode’s merge editor made it
+easier to see the differences and fix the conflict. Doing this made me understand how to handle changes safely when
+working with others.
