@@ -13,7 +13,7 @@ that sir Jeremy experienced but a problem experienced by many people with ADHD o
 ### What problem is Focus Bear solving
 
 Focus Bear is solving distraction, especially for people with ADHD or autism. It acts as a second layer of self
-control that tells the users if certain apps might be distrating or might be drawing them away from their work
+control that tells the users if certain apps might be distracting or might be drawing them away from their work
 or focus sessions.
 
 ### Why do you think this mission is important
