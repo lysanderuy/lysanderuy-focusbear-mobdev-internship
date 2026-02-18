@@ -252,3 +252,58 @@ test and maintain.
 Refactoring definitely improved it by flattening the logic using `filter` and `map`. It reduced nesting and improved
 readability. Overall, refactoring reduced the lines of code and lowered complexity while still maintaining the
 same core functionality.
+
+---
+
+## Avoiding Code Duplication
+
+### Applying DRY principle
+
+This sample code below violates DRY because the same logic is duplicated three times in different places.
+
+**With Unnecessary Repetition:**
+
+```javascript
+function sendWelcomeEmail(user) {
+  if (user.role === "admin") {
+    console.log("Welcome Admin " + user.name);
+    console.log("Your account has been created.");
+  }
+
+  if (user.role === "editor") {
+    console.log("Welcome Editor " + user.name);
+    console.log("Your account has been created.");
+  }
+
+  if (user.role === "viewer") {
+    console.log("Welcome Viewer " + user.name);
+    console.log("Your account has been created.");
+  }
+}
+```
+
+We apply the DRY principle by making the entire function handle all roles dynamically. This way, we avoid duplicated
+console logs, and everything is easier to maintain.
+
+**Refactored Version (DRY):**
+
+```javascript
+function sendWelcomeEmail(user) {
+  const role = user.role.charAt(0).toUpperCase() + user.role.slice(1);
+
+  console.log(`Welcome ${role} ${user.name}`);
+  console.log("Your account has been created.");
+}
+```
+
+### Reflections in Avoiding Code Duplication
+
+#### What were the issues with duplicated code?
+
+The original code violated the DRY principle with its duplicated logic, making it harder to maintain. The duplicated
+logic also introduces higher bug risks, poor scalability, and just makes the entire code unnecessarily long.
+
+#### How did refactoring improve maintainability?
+
+Refactoring the function to follow the DRY principle centralizes logic. It reduces duplication which in turn makes
+the code shorter and cleaner. It also improves maintainability as the function itself is now easier to update or extend.
