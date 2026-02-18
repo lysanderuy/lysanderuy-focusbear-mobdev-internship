@@ -118,6 +118,8 @@ are caught early and meaningful errors are thrown.
 Handling errors improve reliability by preventing crashes, and ensuring consistent behavior. It also simplifies and
 helps with debugging, protects data integrity, and ultimately boosts user trust.
 
+---
+
 ## Commenting & Documentation
 
 ### Improving Documentation
@@ -174,7 +176,7 @@ readability.
 
 #### When should you avoid comments and instead improve the code?
 
-You should avoid comments and improve the code isntead when the comments just repeat what the code says, or
+You should avoid comments and improve the code instead when the comments just repeat what the code says, or
 when variable/function names are unclear, so you just rename them in the code instead. It should also be avoided
 when the function is doing too much or when the logic itself is confusing. Generally, when the code can be made
 self-explanatory by name changes or a little refactoring, then comments/documentation aren't really needed.
