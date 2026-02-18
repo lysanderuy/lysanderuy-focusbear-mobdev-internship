@@ -36,6 +36,8 @@ Ran the both test cases and the result shows no errors within the function.
   <img width="450" alt="Image" src="https://github.com/user-attachments/assets/7f110fce-8c74-493a-a258-6b42fd5d27a0" />
 </p>
 
+---
+
 ## Reflections
 
 ### How do unit tests help keep code clean?
