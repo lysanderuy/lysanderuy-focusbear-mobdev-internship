@@ -47,9 +47,9 @@ really dig around a function, or a block of code to check what minor detail coul
 
 #### What issues did you find while testing?
 
-At first, the only test case I tried was to confirm if 1 + 2 really equals to 3. It passed but when I tried making a
-test case for this and passed an invalid input, "hello", it still accepted the input and just concatenated it to 1
-giving a result of "1hello." I then refactored the function to only accept numbers as an input and soon after,
+At first, the only test case I tried was to confirm if `1 + 2` really equals to `3`. It passed but when I tried making a
+test case for this and passed an invalid input, `"hello"`, it still accepted the input and just concatenated it to 1
+giving a result of `"1hello."` I then refactored the function to only accept numbers as an input and soon after,
 the function passed both test cases.
 
 ---
@@ -180,3 +180,75 @@ You should avoid comments and improve the code instead when the comments just re
 when variable/function names are unclear, so you just rename them in the code instead. It should also be avoided
 when the function is doing too much or when the logic itself is confusing. Generally, when the code can be made
 self-explanatory by name changes or a little refactoring, then comments/documentation aren't really needed.
+
+---
+
+## Refactoring Code
+
+### Simplifying Complicated Code
+
+This is a realistic example of an overly complicated code.
+
+**Overly Complicated Version:**
+
+```javascript
+function processUsers(users) {
+  let result = [];
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i] !== null && users[i] !== undefined) {
+      if (users[i].isActive === true) {
+        if (users[i].age !== null && users[i].age !== undefined) {
+          if (users[i].age > 18) {
+            if (users[i].email !== null && users[i].email !== undefined) {
+              let email = users[i].email;
+              if (typeof email === "string") {
+                let lower = "";
+                for (let j = 0; j < email.length; j++) {
+                  lower += email[j].toLowerCase();
+                }
+                result[result.length] = lower;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return result;
+}
+```
+
+Improving the function to have no nested conditionals by using functional array methods, and removing unnecessary
+null checks. Which makes it more readable and easier to test.
+
+**Refactored Version:**
+
+```javascript
+function processUsers(users) {
+  return users
+    .filter(
+      (user) =>
+        user &&
+        user.isActive &&
+        user.age > 18 &&
+        typeof user.email === "string",
+    )
+    .map((user) => user.email.toLowerCase());
+}
+```
+
+### Reflections in Refactoring Code
+
+#### What made the original code complex?
+
+Firstly, the function contained deeply nested `if` statements which becomes hard to read. It also had too many
+repeated null checks, manual implementation of built-in functionality (`toLowerCase`), and was difficult to
+test and maintain.
+
+#### How did refactoring improve it?
+
+Refactoring definitely improved it by flattening the logic using `filter` and `map`. It reduced nesting and improved
+readability. Overall, refactoring reduced the lines of code and lowered complexity while still maintaining the
+same core functionality.
