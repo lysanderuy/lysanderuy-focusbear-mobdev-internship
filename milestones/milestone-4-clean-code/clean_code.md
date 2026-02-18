@@ -307,3 +307,162 @@ logic also introduces higher bug risks, poor scalability, and just makes the ent
 
 Refactoring the function to follow the DRY principle centralizes logic. It reduces duplication which in turn makes
 the code shorter and cleaner. It also improves maintainability as the function itself is now easier to update or extend.
+
+---
+
+## Writing Small, Focused Functions
+
+### Improving Long Functions
+
+The function handles patient vitals, calculates a risk score, triggers alerts, and formats a summary all in one block.
+While it works, its length makes it harder to test, maintain, and extend.
+
+**Original Long Function:**
+
+```javascript
+// Function: Process patient vitals and generate summary
+function processPatientVitals(patient) {
+  if (!patient || !patient.vitals) {
+    console.error("Invalid patient data");
+    return null;
+  }
+
+  const { heartRate, bloodPressure, oxygenSaturation, temperature } =
+    patient.vitals;
+
+  // Check for abnormalities
+  const alerts = [];
+  if (heartRate < 60 || heartRate > 100)
+    alerts.push(`Heart rate abnormal: ${heartRate}`);
+  if (bloodPressure.systolic < 90 || bloodPressure.systolic > 140)
+    alerts.push(`Systolic BP abnormal: ${bloodPressure.systolic}`);
+  if (bloodPressure.diastolic < 60 || bloodPressure.diastolic > 90)
+    alerts.push(`Diastolic BP abnormal: ${bloodPressure.diastolic}`);
+  if (oxygenSaturation < 95)
+    alerts.push(`Oxygen saturation low: ${oxygenSaturation}`);
+  if (temperature < 36 || temperature > 37.5)
+    alerts.push(`Temperature abnormal: ${temperature}`);
+
+  // Simple risk scoring
+  let riskScore = 0;
+  if (heartRate > 100 || heartRate < 60) riskScore += 1;
+  if (bloodPressure.systolic > 140 || bloodPressure.systolic < 90)
+    riskScore += 1;
+  if (oxygenSaturation < 92) riskScore += 2;
+  if (temperature > 38) riskScore += 1;
+
+  // Determine patient status
+  const status =
+    riskScore >= 3 ? "Critical" : riskScore === 2 ? "Warning" : "Stable";
+
+  // Log result
+  console.log(
+    `Patient ${patient.id} status: ${status} (riskScore: ${riskScore})`,
+  );
+  if (alerts.length) console.warn("Alerts:", alerts.join(", "));
+
+  // Return summary
+  return {
+    id: patient.id,
+    status,
+    riskScore,
+    alerts,
+    vitals: patient.vitals,
+    timestamp: new Date().toISOString(),
+  };
+}
+```
+
+Breaking the function into smaller, single-purpose functions improves readability and makes testing each step easier.
+Each piece—validation, alerting, scoring, and formatting—can now be updated independently without affecting the others.
+
+**Refactored Version:**
+
+```javascript
+// Validate patient data
+function validatePatient(patient) {
+  if (!patient || !patient.vitals) {
+    console.error("Invalid patient data");
+    return false;
+  }
+  return true;
+}
+
+// Check for abnormal vitals
+function getAlerts(vitals) {
+  const alerts = [];
+  if (vitals.heartRate < 60 || vitals.heartRate > 100)
+    alerts.push(`Heart rate abnormal: ${vitals.heartRate}`);
+  if (vitals.bloodPressure.systolic < 90 || vitals.bloodPressure.systolic > 140)
+    alerts.push(`Systolic BP abnormal: ${vitals.bloodPressure.systolic}`);
+  if (
+    vitals.bloodPressure.diastolic < 60 ||
+    vitals.bloodPressure.diastolic > 90
+  )
+    alerts.push(`Diastolic BP abnormal: ${vitals.bloodPressure.diastolic}`);
+  if (vitals.oxygenSaturation < 95)
+    alerts.push(`Oxygen saturation low: ${vitals.oxygenSaturation}`);
+  if (vitals.temperature < 36 || vitals.temperature > 37.5)
+    alerts.push(`Temperature abnormal: ${vitals.temperature}`);
+  return alerts;
+}
+
+// Calculate risk score
+function calculateRiskScore(vitals) {
+  let score = 0;
+  if (vitals.heartRate < 60 || vitals.heartRate > 100) score += 1;
+  if (vitals.bloodPressure.systolic < 90 || vitals.bloodPressure.systolic > 140)
+    score += 1;
+  if (vitals.oxygenSaturation < 92) score += 2;
+  if (vitals.temperature > 38) score += 1;
+  return score;
+}
+
+// Determine patient status
+function determineStatus(score) {
+  return score >= 3 ? "Critical" : score === 2 ? "Warning" : "Stable";
+}
+
+// Format summary for output
+function formatSummary(patient, status, score, alerts) {
+  return {
+    id: patient.id,
+    status,
+    riskScore: score,
+    alerts,
+    vitals: patient.vitals,
+    timestamp: new Date().toISOString(),
+  };
+}
+
+// Main function
+function processPatientVitals(patient) {
+  if (!validatePatient(patient)) return null;
+
+  const vitals = patient.vitals;
+  const alerts = getAlerts(vitals);
+  const riskScore = calculateRiskScore(vitals);
+  const status = determineStatus(riskScore);
+
+  console.log(
+    `Patient ${patient.id} status: ${status} (riskScore: ${riskScore})`,
+  );
+  if (alerts.length) console.warn("Alerts:", alerts.join(", "));
+
+  return formatSummary(patient, status, riskScore, alerts);
+}
+```
+
+### Reflections in Writing Small, Focused Functions
+
+#### Why is breaking down functions beneficial?
+
+Breaking down functions is beneficial because it mainly improves readability and understanding of the code. It also
+makes testing each part easier, simplifies debugging and maintenance, and even encourages code reuse. Overall, it
+reduces the risk of introducing errors when changing code.
+
+#### How did refactoring improve the structure of the code?
+
+Refactoring improved the structure of the code because each function now has a single, clear purpose. Because of this,
+the main function now reads as a simple sequence of steps. Lastly, the overall flow is now more modular and
+maintainable.
