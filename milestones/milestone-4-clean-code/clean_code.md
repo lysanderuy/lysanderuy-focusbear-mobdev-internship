@@ -117,3 +117,66 @@ are caught early and meaningful errors are thrown.
 
 Handling errors improve reliability by preventing crashes, and ensuring consistent behavior. It also simplifies and
 helps with debugging, protects data integrity, and ultimately boosts user trust.
+
+---
+
+## Commenting & Documentation
+
+### Improving Documentation
+
+**Poorly Poorly Commented Code:**
+
+```javascript
+function process(data) {
+  // loop
+  for (let i = 0; i < data.length; i++) {
+    // check
+    if (data[i] > 100) {
+      // fix it
+      data[i] = 100;
+    }
+  }
+  return data; // return data
+}
+```
+
+**Improved Version with Useful Comments:**
+
+```javascript
+/**
+ * Caps all numeric values in the array at a maximum of 100.
+ *
+ * This function ensures that no value exceeds the system's
+ * upper threshold (e.g., maximum allowed score or percentage).
+ *
+ * @param {number[]} data - Array of numeric values to normalize.
+ * @returns {number[]} The modified array with values capped at 100.
+ */
+function process(data) {
+  // Iterate through each value to enforce the maximum limit
+  for (let i = 0; i < data.length; i++) {
+    // Clamp values above 100 to prevent overflow or invalid scores
+    if (data[i] > 100) {
+      data[i] = 100;
+    }
+  }
+
+  return data;
+}
+```
+
+### Reflections in Commenting & Documentation
+
+#### When should you add comments?
+
+Comments or documentation should be added when the intent isn't clear. It should be added to explain why something is
+done a certain way, or to explain complex logics. It is also helpful to add documentation for public APIs and shared
+functions to make it readable and easily understandable by many. Overall, documentations provide clarity, and improved
+readability.
+
+#### When should you avoid comments and instead improve the code?
+
+You should avoid comments and improve the code instead when the comments just repeat what the code says, or
+when variable/function names are unclear, so you just rename them in the code instead. It should also be avoided
+when the function is doing too much or when the logic itself is confusing. Generally, when the code can be made
+self-explanatory by name changes or a little refactoring, then comments/documentation aren't really needed.
