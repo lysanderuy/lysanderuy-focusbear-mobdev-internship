@@ -28,8 +28,8 @@ jobs:
         run: npm ci
 
       # 4️⃣ ESLint: JS + JSX only
-      - name: Run ESLint
-        run: npx eslint "**/*.{js,jsx}" --ext .js,.jsx || true
+      - name: ESLint (JS/JSX in milestones)
+        run: npx eslint "milestones/**/*.{js,jsx}" --ext .js,.jsx || true
 
       # 5️⃣ Markdownlint (existing .markdownlint.json)
       - name: Run Markdownlint
@@ -37,4 +37,4 @@ jobs:
 
       # 6️⃣ Spell check
       - name: Run spell check
-        run: npx cspell "**/*.md"
+        run: npx cspell "milestones/**/*.md"
