@@ -466,3 +466,63 @@ reduces the risk of introducing errors when changing code.
 Refactoring improved the structure of the code because each function now has a single, clear purpose. Because of this,
 the main function now reads as a simple sequence of steps. Lastly, the overall flow is now more modular and
 maintainable.
+
+---
+
+## Naming Variables & Functions
+
+### Improving Naming
+
+The snippet below shows unclear function names, and variable names that give no context, making it confusing to
+understand what the entire function really is for.
+
+**Unclear Version:**
+
+```javascript
+function process(d) {
+  let r = [];
+  for (let i = 0; i < d.length; i++) {
+    if (d[i].a === 1) {
+      r.push(d[i]);
+    }
+  }
+  return r;
+}
+```
+
+**Improved Version:**
+
+```javascript
+function filterActiveUsers(users) {
+  const activeUsers = [];
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].status === STATUS_ACTIVE) {
+      activeUsers.push(users[i]);
+    }
+  }
+
+  return activeUsers;
+}
+```
+
+### Reflections in Naming Variables & Functions
+
+#### What makes a good variable or function name?
+
+Good variable or function names are descriptive in nature where you can easily understand its intent by reading it
+alone. They are clear, unambiguous, and content-specific. Lastly, they usually follow consistent naming conventions
+like `camelCase` for JavaScript or `snake_case` for Python.
+
+#### What issues can arise from poorly named variables?
+
+Firstly, when variables are poorly named, the entire code or some parts of it will become hard to understand or to
+maintain. Using inconsistent names increase the risk of bugs and errors, and can even cause unintended behaviour.
+With poorly named variables, extra comments or documentations are needed just to clarify which is already
+inefficient in itself.
+
+#### How did refactoring improve code readability?
+
+Refactoring made variable and function purpose immediately clear. It reduced ambiguity and removed cryptic
+abbreviations that add to confusion. It now also does not need unnecessary comments for clarity. Lastly,
+maintainability and ease of understanding for others is improved.
