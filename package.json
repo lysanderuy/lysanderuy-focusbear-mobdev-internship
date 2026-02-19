@@ -21,5 +21,9 @@
     "husky": "^8.0.0",
     "markdownlint-cli": "^0.47.0",
     "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.13.5",
+    "dotenv": "^17.3.1"
   }
 }
