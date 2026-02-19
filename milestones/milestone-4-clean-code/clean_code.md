@@ -547,3 +547,108 @@ functions, undefined variables, or plain syntax errors and improper assignments.
 
 Yes, definitely. It improved readability and structure in my code. It helped a lot with spotting errors, and following
 general logic. Finally, it makes collaboration and code reviews much more smoother.
+
+---
+
+## Clean Code Principles
+
+### Research Task
+
+#### Summarizing Principles
+
+- **Simplicity** – Keep code as simple as possible.
+  - Prefer straightforward solutions over clever ones.
+  - void unnecessary abstractions and over-engineering.
+  - Break complex logic into small, single-purpose functions.
+  - Remove dead code and unused variables.
+  - Follow the principle: If you can make it simpler, do it.
+
+- **Readability** – Code should be easy to understand.
+  - Use meaningful, descriptive variable and function names.
+  - Keep functions short and focused on one responsibility.
+  - Maintain proper indentation and formatting.
+  - Avoid deeply nested conditionals.
+  - Write comments only when necessary. Explain why, not what.
+
+- **Maintainability** – Future developers (including you!) should be able to work with the code easily.
+  - Follow the Single Responsibility Principle.
+  - Avoid duplication (DRY – Don’t Repeat Yourself).
+  - Organize files logically.
+  - Write modular, reusable components.
+  - Ensure changes in one area don’t break unrelated parts.
+
+- **Consistency** – Follow style guides and project conventions.
+  - Stick to agreed naming conventions (camelCase, PascalCase, etc.).
+  - Use consistent formatting and linting rules.
+  - Follow the same error-handling patterns across the project.
+  - Keep folder structure and architecture predictable.
+
+- **Efficiency** – Write performant, optimized code without premature over-engineering.
+  - Choose appropriate data structures and algorithms.
+  - Avoid unnecessary loops and repeated computations.
+  - Optimize only after identifying performance bottlenecks.
+  - Prioritize clarity first, then improve performance when needed.
+
+#### Cleaning Up Messy Code
+
+The function loops through a list of users and calculates a bonus based on their role and active status, then logs the
+total. It is difficult to read because of unclear variable names, deep nested conditionals, and magic numbers that make
+the logic hard to understand.
+
+**Messy Code:**
+
+```javascript
+function p(u) {
+  var t = 0;
+  for (var i = 0; i < u.length; i++) {
+    if (u[i].a == true) {
+      if (u[i].r == "admin") {
+        t = t + u[i].s * 0.3;
+      } else {
+        if (u[i].r == "user") {
+          t = t + u[i].s * 0.1;
+        } else {
+          t = t + u[i].s * 0.05;
+        }
+      }
+    }
+  }
+  console.log("Total:", t);
+}
+```
+
+The refactored function calculates the total bonus for active users by using clear variable names and separating the
+bonus logic into a helper function. It is easier to read and maintain because the structure is simpler,
+responsibilities are separated, and constants make the business rules explicit.
+
+**Cleaner, Refactored Version:**
+
+```javascript
+function calculateTotalBonus(users) {
+  const ADMIN_BONUS_RATE = 0.3;
+  const USER_BONUS_RATE = 0.1;
+  const DEFAULT_BONUS_RATE = 0.05;
+
+  let totalBonus = 0;
+
+  for (const user of users) {
+    if (!user.isActive) continue;
+
+    const bonusRate = getBonusRate(user.role);
+    totalBonus += user.salary * bonusRate;
+  }
+
+  return totalBonus;
+}
+
+function getBonusRate(role) {
+  switch (role) {
+    case "admin":
+      return 0.3;
+    case "user":
+      return 0.1;
+    default:
+      return 0.05;
+  }
+}
+```
