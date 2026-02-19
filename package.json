@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint:js": "eslint \"**/*.{js,jsx}\" --ext .js,.jsx",
     "lint:md": "markdownlint \"**/*.md\" \"!node_modules/**/*.md\"",
     "prepare": "husky install"
   },
@@ -14,7 +15,6 @@
     "cspell": "^9.6.4",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-markdown": "^5.1.0",
     "husky": "^8.0.0",
     "markdownlint-cli": "^0.47.0"
   }

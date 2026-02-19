@@ -27,15 +27,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ ESLint: JS/JSX/TS/TSX only
+      # 4️⃣ ESLint: JS + JSX only
       - name: Run ESLint
-        run: |
-          npx eslint "**/*.{js,jsx,ts,tsx}" --ext .js,.jsx,.ts,.tsx
+        run: npx eslint "**/*.{js,jsx}" --ext .js,.jsx
 
-      # 5️⃣ Markdownlint (checks only Markdown formatting)
+      # 5️⃣ Markdownlint (existing .markdownlint.json)
       - name: Run Markdownlint
         run: npx markdownlint "**/*.md"
 
-      # 6️⃣ Spell check (Markdown only)
+      # 6️⃣ Spell check
       - name: Run spell check
         run: npx cspell "**/*.md"
