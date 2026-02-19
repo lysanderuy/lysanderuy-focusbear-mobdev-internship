@@ -526,3 +526,24 @@ inefficient in itself.
 Refactoring made variable and function purpose immediately clear. It reduced ambiguity and removed cryptic
 abbreviations that add to confusion. It now also does not need unnecessary comments for clarity. Lastly,
 maintainability and ease of understanding for others is improved.
+
+---
+
+## Code Formatting & Style Guides
+
+### Reflections Code Formatting & Style
+
+#### Why is code formatting important?
+
+Code formatting is important because it ensures consistent style across files and team members. It ultimately makes
+code easier to read, understand, and maintain. It also prevents subtle bugs cause by messy or inconsistent code.
+
+#### What issues did the linter detect?
+
+Some issues that linter detected were in my sample code snippets inside this file. Errors like unused variables or
+functions, undefined variables, or plain syntax errors and improper assignments.
+
+#### Did formatting the code make it easier to read?
+
+Yes, definitely. It improved readability and structure in my code. It helped a lot with spotting errors, and following
+general logic. Finally, it makes collaboration and code reviews much more smoother.
