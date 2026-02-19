@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "npx eslint \"milestones/**/*.{js,jsx}\" --ext .js,.jsx",
-    "lint:md": "markdownlint \"milestones/**/*.md\" \"!node_modules/**/*.md\"",
-    "format": "prettier --write \"milestones/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "npx eslint \"**/*.{js,jsx}\" --ext .js,.jsx",
+    "lint:md": "markdownlint \"**/*.md\" \"!node_modules/**/*.md\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "prepare": "husky install"
   },
   "keywords": [],
