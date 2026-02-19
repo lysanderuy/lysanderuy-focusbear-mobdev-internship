@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint \"**/*.{js,jsx}\" --ext .js,.jsx",
+    "lint": "npx eslint \"**/*.{js,jsx}\" --ext .js,.jsx",
     "lint:md": "markdownlint \"**/*.md\" \"!node_modules/**/*.md\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -14,8 +15,11 @@
   "devDependencies": {
     "cspell": "^9.6.4",
     "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.1.0",
     "eslint-plugin-react": "^7.37.5",
     "husky": "^8.0.0",
-    "markdownlint-cli": "^0.47.0"
+    "markdownlint-cli": "^0.47.0",
+    "prettier": "^3.0.0"
   }
 }

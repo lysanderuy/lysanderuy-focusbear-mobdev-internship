@@ -29,7 +29,12 @@ jobs:
 
       # 4️⃣ ESLint: JS + JSX only
       - name: Run ESLint
-        run: npx eslint "**/*.{js,jsx}" --ext .js,.jsx || true
+        run: |
+          if ls milestones/*.{js,jsx} 1> /dev/null 2>&1; then
+            npx eslint "milestones/**/*.{js,jsx}" --ext .js,.jsx
+          else
+            echo "No JS/JSX files found, skipping ESLint"
+          fi
 
       # 5️⃣ Markdownlint (existing .markdownlint.json)
       - name: Run Markdownlint
