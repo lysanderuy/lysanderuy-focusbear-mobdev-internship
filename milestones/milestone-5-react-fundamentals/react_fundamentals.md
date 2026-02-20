@@ -16,3 +16,9 @@ scratch**, including:
 
 Even when familiar with the setup, going through the official documentation helped me **confirm the most current
 recommended approach** and solidify my understanding of Vite + Tailwind integration.
+
+### What happens if we modify state directly instead of using setState?
+
+In React, you should always update state using the setter function like `setCount`, because changing the state variable
+directly won’t make the component re-render, so the UI won’t update. Doing it directly can also lead to unexpected
+behavior since React won’t track the change properly.
