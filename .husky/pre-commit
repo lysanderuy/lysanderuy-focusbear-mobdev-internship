@@ -2,4 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run lint:md
-npx cspell "milestones/**/*.md"
+
+# Exclude all node_modules
+npx cspell "milestones/**/*.md" --exclude "**/node_modules/**"
