@@ -1,10 +1,11 @@
 import React from "react";
+import Counter from "./Counter";
 
 export default function App() {
   return (
-    <div className="w-screen h-screen bg-[#F5F5F0] flex items-center justify-center relative overflow-hidden">
-      {/* Container for card and tagline */}
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-12 z-10 px-4">
+    <div className="w-screen h-screen bg-[#F5F5F0] flex items-center justify-center relative overflow-hidden px-4">
+      {/* Main container: flex-col on mobile, flex-row on md+ */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-6xl">
         {/* Profile Card */}
         <div className="bg-[#6A7337]/20 backdrop-blur-md shadow-lg rounded-2xl p-10 max-w-sm w-full text-center md:text-left">
           <h1 className="text-3xl font-bold text-[#3B3E2F]">Lysander Uy</h1>
@@ -14,7 +15,7 @@ export default function App() {
           <div className="border-t border-[#BCC29C] my-6"></div>
 
           {/* Social Links */}
-          <div className="flex flex-col gap-3 mt-4 text-center">
+          <div className="flex flex-col gap-3 mt-4 text-center md:text-center">
             <a
               href="https://lysanderuy.my.canva.site/"
               target="_blank"
@@ -50,6 +51,11 @@ export default function App() {
               Email
             </a>
           </div>
+        </div>
+
+        {/* Counter Component */}
+        <div className="w-full max-w-sm flex justify-center">
+          <Counter />
         </div>
       </div>
     </div>
