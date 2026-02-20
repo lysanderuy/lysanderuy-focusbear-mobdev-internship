@@ -1,9 +1,10 @@
 import React from "react";
 import Counter from "./Counter";
+import HelloWorld from "./HelloWord";
 
 export default function App() {
   return (
-    <div className="w-screen h-screen bg-[#F5F5F0] flex items-center justify-center relative overflow-hidden px-4">
+    <main className="w-screen h-screen bg-[#F5F5F0] flex items-center justify-center px-4 overflow-hidden">
       {/* Main container: flex-col on mobile, flex-row on md+ */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-6xl">
         {/* Profile Card */}
@@ -15,7 +16,7 @@ export default function App() {
           <div className="border-t border-[#BCC29C] my-6"></div>
 
           {/* Social Links */}
-          <div className="flex flex-col gap-3 mt-4 text-center md:text-center">
+          <div className="flex flex-col gap-3 mt-4 text-center md:text-left">
             <a
               href="https://lysanderuy.my.canva.site/"
               target="_blank"
@@ -53,11 +54,12 @@ export default function App() {
           </div>
         </div>
 
-        {/* Counter Component */}
-        <div className="w-full max-w-sm flex justify-center">
+        {/* Right Column: HelloWorld + Counter */}
+        <div className="flex flex-col w-full max-w-sm items-center justify-center gap-6">
+          <HelloWorld name="Everyone" />
           <Counter />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
