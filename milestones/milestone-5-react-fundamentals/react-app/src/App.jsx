@@ -1,6 +1,6 @@
 import React from "react";
 import Counter from "./Counter";
-import HelloWorld from "./HelloWord";
+import HelloWorld from "./HelloWorld";
 
 export default function App() {
   return (
