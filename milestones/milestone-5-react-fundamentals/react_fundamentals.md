@@ -44,3 +44,10 @@ update the UI efficiently when things change.
 6. **Fragments without keys** – Returning fragments for list items without keys triggers React warnings.
 7. **Updating nested data** – Updating objects inside arrays requires immutable updates to prevent bugs.
 8. **Inputs inside lists** – Each input should have its own state; otherwise, all inputs may share the same value.
+
+### What are the advantages of client-side routing
+
+Client-side routing makes navigation faster because the page doesn’t fully reload every time you switch views.
+It creates a smoother experience since only the necessary components update, which makes the app feel more like
+a native application. It also helps preserve state, so things like form inputs or data don’t reset when moving
+between pages.
