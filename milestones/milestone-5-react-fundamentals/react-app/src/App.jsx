@@ -1,65 +1,47 @@
-import React from "react";
-import Counter from "./Counter";
-import HelloWorld from "./HelloWorld";
+"use client";
+
+import React, { useState } from "react";
 
 export default function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [items, setItems] = useState([]);
+
+  const handleAddItem = () => {
+    if (inputValue.trim() === "") return; // prevent empty items
+    setItems([...items, inputValue]);
+    setInputValue(""); // clear input
+  };
+
   return (
-    <main className="w-screen h-screen bg-[#F5F5F0] flex items-center justify-center px-4 overflow-hidden">
-      {/* Main container: flex-col on mobile, flex-row on md+ */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-6xl">
-        {/* Profile Card */}
-        <div className="bg-[#6A7337]/20 backdrop-blur-md shadow-lg rounded-2xl p-10 max-w-sm w-full text-center md:text-left">
-          <h1 className="text-3xl font-bold text-[#3B3E2F]">Lysander Uy</h1>
-          <p className="mt-2 text-[#55603F]">Mobile App Developer Intern</p>
+    <main className="w-screen h-screen bg-[#F5F5F0] flex flex-col items-center justify-center px-4">
+      <h1 className="text-2xl font-bold mb-6 text-black">Dynamic List</h1>
 
-          {/* Divider */}
-          <div className="border-t border-[#BCC29C] my-6"></div>
-
-          {/* Social Links */}
-          <div className="flex flex-col gap-3 mt-4 text-center md:text-left">
-            <a
-              href="https://lysanderuy.my.canva.site/"
-              target="_blank"
-              className="py-2 rounded-lg font-semibold text-[#3B3E2F] bg-[#6A7337]/30 hover:bg-[#6A7337]/50 transition"
-            >
-              Portfolio
-            </a>
-            <a
-              href="https://github.com/lysanderuy/"
-              target="_blank"
-              className="py-2 rounded-lg font-semibold text-[#3B3E2F] bg-[#6A7337]/30 hover:bg-[#6A7337]/50 transition"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/lysanderuy"
-              target="_blank"
-              className="py-2 rounded-lg font-semibold text-[#3B3E2F] bg-[#6A7337]/30 hover:bg-[#6A7337]/50 transition"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.instagram.com/uy_lysan"
-              target="_blank"
-              className="py-2 rounded-lg font-semibold text-[#3B3E2F] bg-[#6A7337]/30 hover:bg-[#6A7337]/50 transition"
-            >
-              Instagram
-            </a>
-            <a
-              href="mailto:lysander.uy@gmail.com"
-              className="py-2 rounded-lg font-semibold text-[#3B3E2F] bg-[#6A7337]/30 hover:bg-[#6A7337]/50 transition"
-            >
-              Email
-            </a>
-          </div>
-        </div>
-
-        {/* Right Column: HelloWorld + Counter */}
-        <div className="flex flex-col w-full max-w-sm items-center justify-center gap-6">
-          <HelloWorld name="Everyone" />
-          <Counter />
-        </div>
+      <div className="flex gap-2 mb-6">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          className="text-black border border-gray-400 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-black"
+          placeholder="Enter text"
+        />
+        <button
+          onClick={handleAddItem}
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+        >
+          Add
+        </button>
       </div>
+
+      <ul className="space-y-2 w-full max-w-sm">
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className="bg-white border border-gray-300 rounded px-4 py-2 shadow-sm text-black"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
