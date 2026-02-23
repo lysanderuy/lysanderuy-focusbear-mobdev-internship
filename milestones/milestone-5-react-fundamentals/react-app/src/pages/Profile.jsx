@@ -113,7 +113,6 @@ export default function Profile() {
           fontFamily: "'DM Mono', monospace",
         }}
       >
-        {/* Noise / grid / glow */}
         <div className="noise absolute inset-0 pointer-events-none z-0 opacity-[0.18]" />
         <div
           className="absolute inset-0 pointer-events-none z-0 opacity-[0.04]"
@@ -131,7 +130,6 @@ export default function Profile() {
           }}
         />
 
-        {/* HEADER */}
         <header
           className={`relative z-10 flex items-center justify-between px-14 py-7 border-b border-[#6e8840]/30 ${mounted ? "fade-1" : "opacity-0"}`}
         >
@@ -149,12 +147,10 @@ export default function Profile() {
           </div>
         </header>
 
-        {/* MAIN */}
         <main
           className="relative z-10 flex-1 grid overflow-hidden px-14"
           style={{ gridTemplateColumns: "1fr 1px 1fr" }}
         >
-          {/* LEFT */}
           <section className="flex flex-col justify-center pr-16 py-6 overflow-hidden">
             <div
               className={`flex items-center gap-6 mb-10 ${mounted ? "fade-2" : "opacity-0"}`}
@@ -227,13 +223,11 @@ export default function Profile() {
             </div>
           </section>
 
-          {/* Divider */}
           <div
             className="my-12"
             style={{ background: "rgba(120,145,55,0.22)" }}
           />
 
-          {/* RIGHT */}
           <section className="flex flex-col justify-center pl-16 py-6 overflow-hidden">
             <div className={`mb-12 ${mounted ? "fade-5" : "opacity-0"}`}>
               <p className="text-[9px] tracking-[0.3em] uppercase text-[#96b050] mb-5">
@@ -294,7 +288,6 @@ export default function Profile() {
           </section>
         </main>
 
-        {/* FOOTER */}
         <footer
           className={`relative z-10 flex items-center justify-between px-14 py-5 border-t border-[#6e8840]/20 ${mounted ? "fade-7" : "opacity-0"}`}
         >
