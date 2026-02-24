@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import UseEffectDemo from "../components/UseEffectDemo";
+import UseMemoDemo from "../components/UseMemoDemo";
 
 export default function Playbox() {
   const [mounted, setMounted] = useState(false);
-  const [show, setShow] = useState(true);
 
   useEffect(() => {
     setMounted(true);
@@ -98,16 +97,7 @@ export default function Playbox() {
           </p>
 
           <div className="w-full max-w-4xl min-h-75 mt-6 border border-[#6e8840] rounded-md p-6 bg-[#222810] flex flex-col items-center justify-center">
-            <div className="m-10 flex flex-col items-center gap-4">
-              <button
-                onClick={() => setShow(!show)}
-                className="px-3 py-1 border border-[#96b050] text-[#96b050] rounded-sm hover:bg-[#96b050]/20 transition-colors"
-              >
-                {show ? "Hide Demo" : "Show Demo"}
-              </button>
-
-              {show && <UseEffectDemo />}
-            </div>
+            <UseMemoDemo />
           </div>
         </main>
 
