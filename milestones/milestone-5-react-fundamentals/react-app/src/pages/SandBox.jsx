@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import UseCallbackDemo from "../components/UseCallbackDemo";
+import TestPost from "../components/TestPost";
 
 export default function Sandbox() {
   const [mounted, setMounted] = useState(false);
@@ -97,7 +97,7 @@ export default function Sandbox() {
           </p>
 
           <div className="w-full max-w-4xl min-h-75 mt-6 border border-[#6e8840] rounded-md p-6 bg-[#222810] flex flex-col items-center justify-center">
-            <UseCallbackDemo />
+            <TestPost />
           </div>
         </main>
 
