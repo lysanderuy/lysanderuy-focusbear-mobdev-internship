@@ -7,10 +7,10 @@ auto_improve = false
 # PR DESCRIPTION CONFIGURATION
 #################################
 
-[describe]
-generate_pr_title = true
-use_bullets = true
-max_description_tokens = 500
+[pr_description]
+generate_ai_title = true
+publish_description_as_comment = false
+final_update_message = true
 
 extra_instructions = """
 Generate a clear, professional, and concise pull request description.
@@ -37,7 +37,7 @@ Guidelines:
 # CODE REVIEW CONFIGURATION
 #################################
 
-[review]
+[pr_reviewer]
 extra_instructions = """
 Review for:
 - Code clarity and readability
