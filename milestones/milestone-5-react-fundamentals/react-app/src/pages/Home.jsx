@@ -60,32 +60,42 @@ export default function Home() {
               style={{ background: "#96b050", boxShadow: "0 0 8px #96b050" }}
             />
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#96b050]">
-              Welcome
+              Portfolio
             </span>
           </div>
         </header>
 
-        <main className="relative z-10 flex-1 flex flex-col justify-center items-center px-14 py-10 gap-8">
+        <main className="relative z-10 flex-1 flex flex-col justify-center items-center px-14 py-10 gap-6">
           <h1
             className={`text-[#edf5a8] font-light text-[clamp(52px,6vw,96px)] leading-[0.92] ${
               mounted ? "fade-2" : "opacity-0"
             }`}
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            Welcome
+            Lysander Uy
           </h1>
-          <Link
-            to="/profile"
-            className="inline-flex items-center gap-2 px-4 py-2 border border-[#6e8840] rounded-sm text-[10px] tracking-[0.2em] uppercase text-[#96b050] bg-transparent transition-colors hover:border-[#96b050] hover:text-[#d4ed60]"
-          >
-            Go to Profile
-          </Link>
-          <Link
-            to="/sandbox"
-            className="inline-flex items-center gap-2 px-4 py-2 border border-[#6e8840] rounded-sm text-[10px] tracking-[0.2em] uppercase text-[#96b050] bg-transparent transition-colors hover:border-[#96b050] hover:text-[#d4ed60]"
-          >
-            Go to Sandbox
-          </Link>
+          <p className="text-[#a8c84a] text-[11px] tracking-[0.18em] uppercase">
+            Full Stack & Mobile Application Developer
+          </p>
+          <p className="text-[#c2d878] text-xs tracking-[0.14em] uppercase">Portfolio Sections</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-xl">
+            {[
+              { to: "/profile", label: "Profile" },
+              { to: "/experience", label: "Experience" },
+              { to: "/projects", label: "Projects" },
+              { to: "/robotics", label: "Robotics" },
+              { to: "/competitions", label: "Competitions" },
+              { to: "/sandbox", label: "Sandbox" },
+            ].map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="inline-flex items-center justify-center px-4 py-2 border border-[#6e8840] rounded-sm text-[10px] tracking-[0.2em] uppercase text-[#96b050] bg-transparent transition-colors hover:border-[#96b050] hover:text-[#d4ed60]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </main>
 
         <footer
@@ -94,7 +104,7 @@ export default function Home() {
           }`}
         >
           <span className="text-[9px] tracking-[0.25em] uppercase text-[#526630]">
-            Focus Bear · Mobile App Developer
+            Full Stack & Mobile Application Developer
           </span>
           <span className="text-[9px] tracking-[0.25em] uppercase text-[#526630]">
             {new Date().getFullYear()}
