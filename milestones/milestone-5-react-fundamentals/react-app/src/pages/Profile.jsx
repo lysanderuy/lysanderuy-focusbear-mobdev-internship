@@ -68,12 +68,27 @@ const links = [
   },
 ];
 
-const stack = [
-  "Next.js + TypeScript",
-  "NestJS",
-  "Prisma",
-  "Supabase / Firebase",
-  "Tailwind CSS",
+const stackGroups = [
+  {
+    label: "Web frontend",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "shadcn/ui"],
+  },
+  {
+    label: "Mobile development",
+    items: ["React Native", "Expo"],
+  },
+  {
+    label: "Backend development",
+    items: ["Node.js", "NestJS"],
+  },
+  {
+    label: "ORM and data access",
+    items: ["TypeORM", "Prisma"],
+  },
+  {
+    label: "Databases and BaaS",
+    items: ["PostgreSQL", "Supabase", "Firebase"],
+  },
 ];
 
 export default function Profile() {
@@ -167,10 +182,10 @@ export default function Profile() {
               </div>
               <div>
                 <div className="text-[10px] tracking-[0.25em] uppercase text-[#c2d878] mb-1">
-                  Mobile App Developer
+                  Full Stack & Mobile Application Developer
                 </div>
                 <div className="text-[11px] tracking-widest text-[#96b050]">
-                  @ Focus Bear
+                  Symph | Focus Bear
                 </div>
               </div>
             </div>
@@ -195,8 +210,8 @@ export default function Profile() {
                 Uy.
               </h1>
               <p className="text-xs leading-relaxed text-[#c2d878] max-w-xs mt-4 tracking-wide">
-                I craft mobile apps and intuitive digital experiences that put
-                people first. Let's build something together.
+                I am a Full Stack & Mobile Application Developer focused on building reliable,
+                user-centered products with clean architecture and thoughtful design.
               </p>
             </div>
 
@@ -271,17 +286,20 @@ export default function Profile() {
             </div>
 
             <div className={mounted ? "fade-6" : "opacity-0"}>
-              <p className="text-[9px] tracking-[0.3em] uppercase text-[#96b050] mb-4">
-                Stack
+              <p className="text-[11px] text-[#96b050] mb-4">
+                TECH STACK
               </p>
-              <div className="flex flex-wrap gap-2">
-                {stack.map((s) => (
-                  <span
-                    key={s}
-                    className="text-[10px] tracking-wide px-3 py-1.5 border border-[#6e8840] text-[#c2d878] rounded-sm"
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {stackGroups.map((group) => (
+                  <div
+                    key={group.label}
+                    className="rounded-lg border border-[#6e8840]/50 bg-[#222810]/60 px-3 py-3"
                   >
-                    {s}
-                  </span>
+                    <p className="text-[11px] text-[#a8c84a] mb-1">{group.label}</p>
+                    <p className="text-[11px] leading-relaxed text-[#c2d878]">
+                      {group.items.join(" · ")}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -292,7 +310,7 @@ export default function Profile() {
           className={`relative z-10 flex items-center justify-between px-14 py-5 border-t border-[#6e8840]/20 ${mounted ? "fade-7" : "opacity-0"}`}
         >
           <span className="text-[9px] tracking-[0.25em] uppercase text-[#526630]">
-            Focus Bear · Mobile App Developer
+            Full Stack & Mobile Application Developer
           </span>
           <span className="text-[9px] tracking-[0.25em] uppercase text-[#526630]">
             {new Date().getFullYear()}
