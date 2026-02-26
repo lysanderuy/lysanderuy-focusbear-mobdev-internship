@@ -3,18 +3,25 @@ import React from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { BrandColors, BrandFonts } from '@/constants/brand-theme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: BrandColors.accent,
+        tabBarInactiveTintColor: BrandColors.textMuted,
         headerShown: false,
         tabBarButton: HapticTab,
+        tabBarLabelStyle: {
+          fontFamily: BrandFonts.mono,
+          letterSpacing: 1,
+          fontSize: 11,
+        },
+        tabBarStyle: {
+          backgroundColor: BrandColors.bgPanel,
+          borderTopColor: BrandColors.border,
+        },
       }}>
       <Tabs.Screen
         name="index"
@@ -24,12 +31,22 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="profile"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="experience"
+        options={{
+          title: 'Experience',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="briefcase.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen name="projects" options={{ href: null }} />
+      <Tabs.Screen name="robotics" options={{ href: null }} />
+      <Tabs.Screen name="competitions" options={{ href: null }} />
     </Tabs>
   );
 }
