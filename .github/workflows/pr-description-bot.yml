@@ -99,6 +99,7 @@ jobs:
               '',
               'Rules:',
               '- Do not add any extra top-level sections.',
+              '- Never wrap the response in code fences (no ```markdown).',
               '- Keep it concrete and specific to the actual code changes.',
               '- Keep the writing concise and professional.',
               '- If dependency impact is minimal, explicitly say so in the dependency graph section.',
@@ -148,7 +149,15 @@ jobs:
               return;
             }
 
-            const missingHeadings = requiredHeadings.filter((heading) => !generated.includes(heading));
+            const stripOuterCodeFence = (text) => {
+              const trimmed = text.trim();
+              const fenceMatch = trimmed.match(/^```(?:markdown|md)?\s*[\r\n]([\s\S]*?)\s*```$/i);
+              return fenceMatch ? fenceMatch[1].trim() : trimmed;
+            };
+
+            const cleaned = stripOuterCodeFence(generated);
+
+            const missingHeadings = requiredHeadings.filter((heading) => !cleaned.includes(heading));
             if (missingHeadings.length > 0) {
               core.setFailed(`Generated description missing required headings: ${missingHeadings.join(', ')}`);
               return;
@@ -158,7 +167,7 @@ jobs:
               owner,
               repo,
               pull_number: prNumber,
-              body: generated,
+              body: cleaned,
             });
 
             core.info(`Updated PR #${prNumber} description.`);
