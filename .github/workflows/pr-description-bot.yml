@@ -100,6 +100,8 @@ jobs:
               'Rules:',
               '- Do not add any extra top-level sections.',
               '- Never wrap the response in code fences (no ```markdown).',
+              '- For the first three sections, use bullet points only (`- `). Do not use paragraphs.',
+              '- For the "How to test/verify?" section, use numbered steps only (`1.`, `2.`, ...).',
               '- Keep it concrete and specific to the actual code changes.',
               '- Keep the writing concise and professional.',
               '- If dependency impact is minimal, explicitly say so in the dependency graph section.',
@@ -160,6 +162,49 @@ jobs:
             const missingHeadings = requiredHeadings.filter((heading) => !cleaned.includes(heading));
             if (missingHeadings.length > 0) {
               core.setFailed(`Generated description missing required headings: ${missingHeadings.join(', ')}`);
+              return;
+            }
+
+            const getSectionBody = (markdown, heading, nextHeading) => {
+              const start = markdown.indexOf(heading);
+              if (start < 0) return '';
+              const sectionStart = start + heading.length;
+              const end = nextHeading ? markdown.indexOf(nextHeading, sectionStart) : markdown.length;
+              return markdown.slice(sectionStart, end < 0 ? markdown.length : end).trim();
+            };
+
+            const firstSectionBody = getSectionBody(cleaned, requiredHeadings[0], requiredHeadings[1]);
+            const secondSectionBody = getSectionBody(cleaned, requiredHeadings[1], requiredHeadings[2]);
+            const thirdSectionBody = getSectionBody(cleaned, requiredHeadings[2], requiredHeadings[3]);
+            const testSectionBody = getSectionBody(cleaned, requiredHeadings[3], null);
+
+            const hasBulletOnly = (text) => {
+              const lines = text
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean);
+              return lines.length > 0 && lines.every((line) => line.startsWith('- '));
+            };
+
+            const hasNumberedStepsOnly = (text) => {
+              const lines = text
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean);
+              return lines.length > 0 && lines.every((line) => /^\d+\.\s+/.test(line));
+            };
+
+            const bulletViolations = [];
+            if (!hasBulletOnly(firstSectionBody)) bulletViolations.push(requiredHeadings[0]);
+            if (!hasBulletOnly(secondSectionBody)) bulletViolations.push(requiredHeadings[1]);
+            if (!hasBulletOnly(thirdSectionBody)) bulletViolations.push(requiredHeadings[2]);
+            if (bulletViolations.length > 0) {
+              core.setFailed(`Generated description must use bullet points only in: ${bulletViolations.join(', ')}`);
+              return;
+            }
+
+            if (!hasNumberedStepsOnly(testSectionBody)) {
+              core.setFailed(`Generated description must use numbered steps only in: ${requiredHeadings[3]}`);
               return;
             }
 
