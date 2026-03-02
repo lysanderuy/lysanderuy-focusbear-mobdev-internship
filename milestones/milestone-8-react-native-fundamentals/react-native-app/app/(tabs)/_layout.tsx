@@ -54,6 +54,15 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="sandbox"
+        options={{
+          title: 'Sandbox',
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={iconSize} name="chevron.left.forwardslash.chevron.right" color={color} />
+          ),
+        }}
+      />
       <Tabs.Screen name="projects" options={{ href: null }} />
       <Tabs.Screen name="robotics" options={{ href: null }} />
       <Tabs.Screen name="competitions" options={{ href: null }} />
