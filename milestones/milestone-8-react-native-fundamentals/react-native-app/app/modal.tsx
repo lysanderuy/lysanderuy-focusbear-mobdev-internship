@@ -1,25 +1,52 @@
 import { Link } from 'expo-router';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button, Card, Text } from '@rneui/themed';
+import { ScrollView, StyleSheet, View, useWindowDimensions } from 'react-native';
 
 import { AppHeader } from '@/components/app-header';
 import { BrandBackground } from '@/components/brand-background';
 import { BrandColors, BrandFonts } from '@/constants/brand-theme';
 
 export default function ModalScreen() {
+  const { width, height } = useWindowDimensions();
+  const isCompact = width < 380;
+  const isTablet = width >= 768;
+  const horizontalPadding = isTablet ? 36 : isCompact ? 16 : 20;
+  const cardPadding = isTablet ? 26 : isCompact ? 16 : 22;
+  const titleSize = isTablet ? 36 : isCompact ? 24 : 30;
+  const bodySize = isTablet ? 16 : isCompact ? 14 : 15;
+  const bodyLineHeight = isTablet ? 24 : isCompact ? 21 : 22;
+  const descriptionWidth = isTablet ? 520 : isCompact ? 290 : 420;
+  const contentVerticalPadding = height < 700 ? 20 : 26;
+
   return (
     <View style={[styles.screen, { backgroundColor: BrandColors.bgBase }]}>
       <BrandBackground />
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView
+        contentContainerStyle={[
+          styles.content,
+          { paddingHorizontal: horizontalPadding, paddingVertical: contentVerticalPadding },
+        ]}>
         <AppHeader title="Modal" subtitle="Portfolio" />
-        <View style={styles.card}>
-          <Text style={styles.title}>Quick Action Space</Text>
-          <Text style={[styles.description, { marginTop: 8 }]}>
+        <Card containerStyle={[styles.card, { padding: cardPadding }]}>
+          <Text h3 h3Style={[styles.title, { fontSize: titleSize }]}>
+            Quick Action Space
+          </Text>
+          <Text
+            style={[
+              styles.description,
+              { fontSize: bodySize, lineHeight: bodyLineHeight, maxWidth: descriptionWidth },
+            ]}>
             Use this modal for short workflows so users can return to the main app quickly.
           </Text>
-          <Link href="/" dismissTo style={styles.link}>
-            <Text style={styles.linkText}>Go To Home</Text>
+          <Link href="/" dismissTo asChild>
+            <Button
+              title="Go To Home"
+              buttonStyle={styles.button}
+              titleStyle={styles.buttonText}
+              containerStyle={styles.buttonContainer}
+            />
           </Link>
-        </View>
+        </Card>
       </ScrollView>
     </View>
   );
@@ -30,8 +57,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingHorizontal: 20,
-    paddingVertical: 26,
     minHeight: '100%',
     justifyContent: 'center',
     gap: 16,
@@ -39,6 +64,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     maxWidth: 520,
+    margin: 0,
     backgroundColor: BrandColors.bgPanelStrong,
     borderRadius: 16,
     padding: 22,
@@ -54,20 +80,24 @@ const styles = StyleSheet.create({
     fontFamily: BrandFonts.hero,
   },
   description: {
+    marginTop: 8,
     fontSize: 15,
     color: BrandColors.textSoft,
     textAlign: 'left',
     lineHeight: 22,
     maxWidth: 420,
   },
-  link: {
+  buttonContainer: {
     marginTop: 18,
+    alignSelf: 'flex-start',
+  },
+  button: {
     paddingVertical: 12,
     paddingHorizontal: 14,
     backgroundColor: BrandColors.accent,
     borderRadius: 10,
   },
-  linkText: {
+  buttonText: {
     color: BrandColors.bgBase,
     fontSize: 16,
     fontWeight: '600',

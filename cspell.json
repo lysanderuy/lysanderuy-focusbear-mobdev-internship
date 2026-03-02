@@ -21,7 +21,9 @@
     "reflog",
     "PSFZF",
     "oneline",
-    "Afterwhich"
+    "Afterwhich",
+    "Flexbox",
+    "flexbox"
   ],
   "ignorePaths": ["node_modules/**", "dist/**"]
 }
