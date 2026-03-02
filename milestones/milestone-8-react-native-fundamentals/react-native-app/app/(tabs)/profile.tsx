@@ -1,4 +1,4 @@
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 import { AppHeader } from '@/components/app-header';
 import { BrandBackground } from '@/components/brand-background';
@@ -6,6 +6,18 @@ import { BrandColors, BrandFonts } from '@/constants/brand-theme';
 import { profileLinks, stackGroups } from '@/constants/portfolio-data';
 
 export default function ProfileScreen() {
+  const { width } = useWindowDimensions();
+  const isCompact = width < 380;
+  const isTablet = width >= 768;
+  const horizontalPadding = isTablet ? 36 : isCompact ? 16 : 20;
+  const nameSize = isTablet ? 48 : isCompact ? 30 : 36;
+  const nameLineHeight = isTablet ? 52 : isCompact ? 34 : 40;
+  const roleSize = isTablet ? 13 : isCompact ? 11 : 12;
+  const bioSize = isTablet ? 18 : isCompact ? 15 : 16;
+  const bioLineHeight = isTablet ? 28 : isCompact ? 22 : 24;
+  const bioWidth = isTablet ? 620 : 500;
+  const rowPadding = isTablet ? 16 : isCompact ? 12 : 14;
+
   const openLink = async (url: string) => {
     await Linking.openURL(url);
   };
@@ -13,11 +25,15 @@ export default function ProfileScreen() {
   return (
     <View style={styles.screen}>
       <BrandBackground />
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView contentContainerStyle={[styles.content, { paddingHorizontal: horizontalPadding }]}>
         <AppHeader title="Profile" subtitle="Portfolio" showStatus />
-        <Text style={styles.name}>Lysander Uy</Text>
-        <Text style={styles.role}>Full Stack Developer · Mobile App Developer</Text>
-        <Text style={styles.bio}>
+        <Text style={[styles.name, { fontSize: nameSize, lineHeight: nameLineHeight }]}>
+          Lysander Uy
+        </Text>
+        <Text style={[styles.role, { fontSize: roleSize }]}>
+          Full Stack Developer · Mobile App Developer
+        </Text>
+        <Text style={[styles.bio, { fontSize: bioSize, lineHeight: bioLineHeight, maxWidth: bioWidth }]}>
           I design and ship end-to-end products, from backend systems to polished mobile
           experiences with strong UX and maintainable architecture.
         </Text>
@@ -28,7 +44,11 @@ export default function ProfileScreen() {
             <Pressable
               key={item.href}
               onPress={() => void openLink(item.href)}
-              style={({ pressed }) => [styles.linkRow, pressed && styles.linkRowPressed]}>
+              style={({ pressed }) => [
+                styles.linkRow,
+                { paddingHorizontal: rowPadding, paddingVertical: rowPadding },
+                pressed && styles.linkRowPressed,
+              ]}>
               <Text style={styles.linkLabel}>{item.label}</Text>
               <View style={styles.linkArrowBadge}>
                 <Text style={styles.linkArrow}>↗</Text>
@@ -63,7 +83,6 @@ const styles = StyleSheet.create({
     backgroundColor: BrandColors.bgBase,
   },
   content: {
-    paddingHorizontal: 20,
     paddingVertical: 26,
     gap: 12,
   },

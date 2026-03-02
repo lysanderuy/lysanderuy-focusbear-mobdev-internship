@@ -1,21 +1,40 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 import { AppHeader } from '@/components/app-header';
 import { BrandBackground } from '@/components/brand-background';
 import { BrandColors, BrandFonts } from '@/constants/brand-theme';
 
 export default function HomeScreen() {
+  const { width, height } = useWindowDimensions();
+  const isCompact = width < 380;
+  const isTablet = width >= 768;
+  const horizontalPadding = isTablet ? 36 : isCompact ? 16 : 20;
+  const titleSize = isTablet ? 64 : isCompact ? 38 : 48;
+  const titleLineHeight = isTablet ? 68 : isCompact ? 42 : 50;
+  const subtitleSize = isTablet ? 18 : isCompact ? 15 : 16;
+  const subtitleLineHeight = isTablet ? 28 : isCompact ? 22 : 24;
+  const subtitleWidth = isTablet ? 520 : isCompact ? 300 : 330;
+  const heroBottomPadding = height < 760 ? 56 : isTablet ? 136 : 104;
+
   return (
     <View style={styles.screen}>
       <BrandBackground />
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView contentContainerStyle={[styles.content, { paddingHorizontal: horizontalPadding }]}>
         <AppHeader title="Home" subtitle="Portfolio" />
 
-        <View style={styles.hero}>
+        <View style={[styles.hero, { paddingBottom: heroBottomPadding }]}>
           <Text style={styles.role}>Portfolio</Text>
-          <Text style={styles.title}>Lysander Uy</Text>
-          <Text style={styles.titleAccent}>Developer</Text>
-          <Text style={styles.subtitle}>
+          <Text style={[styles.title, { fontSize: titleSize, lineHeight: titleLineHeight }]}>
+            Lysander Uy
+          </Text>
+          <Text style={[styles.titleAccent, { fontSize: titleSize, lineHeight: titleLineHeight }]}>
+            Developer
+          </Text>
+          <Text
+            style={[
+              styles.subtitle,
+              { fontSize: subtitleSize, lineHeight: subtitleLineHeight, maxWidth: subtitleWidth },
+            ]}>
             Full Stack Developer and Mobile App Developer crafting clean, production-ready digital
             products.
           </Text>
@@ -31,7 +50,6 @@ const styles = StyleSheet.create({
     backgroundColor: BrandColors.bgBase,
   },
   content: {
-    paddingHorizontal: 20,
     paddingVertical: 26,
     gap: 8,
     minHeight: '100%',
@@ -66,10 +84,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     color: BrandColors.textSoft,
-    fontSize: 16,
-    lineHeight: 24,
     fontFamily: BrandFonts.body,
     marginTop: 18,
-    maxWidth: 330,
   },
 });

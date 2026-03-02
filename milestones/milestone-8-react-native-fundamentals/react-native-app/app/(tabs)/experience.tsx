@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 import { AppHeader } from '@/components/app-header';
 import { BrandBackground } from '@/components/brand-background';
@@ -6,23 +6,34 @@ import { BrandColors, BrandFonts } from '@/constants/brand-theme';
 import { experienceEntries } from '@/constants/portfolio-data';
 
 export default function ExperienceScreen() {
+  const { width } = useWindowDimensions();
+  const isCompact = width < 380;
+  const isTablet = width >= 768;
+  const horizontalPadding = isTablet ? 36 : isCompact ? 16 : 20;
+  const cardPadding = isTablet ? 20 : isCompact ? 14 : 16;
+  const roleTitleSize = isTablet ? 22 : isCompact ? 16 : 18;
+  const companySize = isTablet ? 16 : 14;
+  const contractSize = isTablet ? 15 : isCompact ? 13 : 14;
+
   return (
     <View style={styles.screen}>
       <BrandBackground />
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView contentContainerStyle={[styles.content, { paddingHorizontal: horizontalPadding }]}>
         <AppHeader title="Experience" subtitle="Portfolio" />
 
         {experienceEntries.map((entry) => (
-          <View key={`${entry.roleTitle}-${entry.company}`} style={styles.timelineCard}>
-            <Text style={styles.roleTitle}>{entry.roleTitle}</Text>
-            <Text style={styles.company}>{entry.company}</Text>
+          <View
+            key={`${entry.roleTitle}-${entry.company}`}
+            style={[styles.timelineCard, { padding: cardPadding }]}>
+            <Text style={[styles.roleTitle, { fontSize: roleTitleSize }]}>{entry.roleTitle}</Text>
+            <Text style={[styles.company, { fontSize: companySize }]}>{entry.company}</Text>
             <Text style={styles.period}>{entry.period}</Text>
             {entry.contracts.length > 0 ? (
               <>
                 <Text style={styles.contractLabel}>Contracts</Text>
                 <View style={styles.contractList}>
                   {entry.contracts.map((contract) => (
-                    <Text key={contract} style={styles.contractItem}>
+                    <Text key={contract} style={[styles.contractItem, { fontSize: contractSize }]}>
                       {contract}
                     </Text>
                   ))}
@@ -42,7 +53,6 @@ const styles = StyleSheet.create({
     backgroundColor: BrandColors.bgBase,
   },
   content: {
-    paddingHorizontal: 20,
     paddingVertical: 26,
     gap: 14,
   },

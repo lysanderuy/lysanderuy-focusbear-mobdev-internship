@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Animated, StyleSheet, Text, View } from 'react-native';
+import { Animated, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 import { BrandColors, BrandFonts } from '@/constants/brand-theme';
 
@@ -16,6 +16,12 @@ export function AppHeader({
   statusLabel = 'Available for work',
   showStatus = false,
 }: AppHeaderProps) {
+  const { width } = useWindowDimensions();
+  const isCompact = width < 380;
+  const isTablet = width >= 768;
+  const subtitleSize = isTablet ? 11 : isCompact ? 9 : 10;
+  const titleSize = isTablet ? 16 : isCompact ? 14 : 15;
+
   const pulse = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
@@ -33,8 +39,10 @@ export function AppHeader({
   return (
     <View style={styles.header}>
       <View>
-        {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
-        <Text style={styles.title}>{title}</Text>
+        {subtitle ? <Text style={[styles.subtitle, { fontSize: subtitleSize }]}>{subtitle}</Text> : null}
+        <Text style={[styles.title, { fontSize: titleSize }, subtitle ? styles.titleWithSubtitle : null]}>
+          {title}
+        </Text>
       </View>
       {showStatus ? (
         <View style={styles.statusWrap}>
@@ -67,9 +75,11 @@ const styles = StyleSheet.create({
     color: BrandColors.textMain,
     fontSize: 15,
     fontFamily: BrandFonts.mono,
-    marginTop: subtitle ? 2 : 0,
     textTransform: 'uppercase',
     letterSpacing: 1.6,
+  },
+  titleWithSubtitle: {
+    marginTop: 2,
   },
   statusWrap: {
     flexDirection: 'row',
