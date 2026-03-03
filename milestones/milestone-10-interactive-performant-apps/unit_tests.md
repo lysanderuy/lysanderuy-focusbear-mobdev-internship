@@ -174,3 +174,40 @@ but keep the UI behavior the same.
 The main challenge was setting up the right environment for user interaction tests. My click test initially
 failed until I installed and configured `jest-environment-jsdom`. After that, using `getByRole` and `fireEvent.click`
 made the interaction test straightforward and reliable.
+
+---
+
+## Mocking API Calls
+
+### Testing a React Component with Mocked API Data
+
+For this part, I created `ApiDataWidget.js`, a React component that calls an API on mount and shows three UI states:
+loading, success, and error. I then wrote `ApiDataWidget.test.js` where I mocked `global.fetch` so the test does not
+depend on a real network call. The test verifies that "Loading..." appears first, then checks that the mocked API title
+is rendered and confirms `fetch` was called once with the expected URL.
+
+**Command used:**
+
+```bash
+npm test -- --runInBand ApiDataWidget.test.js
+```
+
+**Result:**
+
+<p align=center>
+  <img width="300" alt="Image" src="https://github.com/user-attachments/assets/c29a04b4-39d7-4345-ae54-605a1a73d727" />
+</p>
+
+### Reflections
+
+#### Why is it important to mock API calls in tests
+
+Mocking API calls keeps my tests stable because they are no longer tied to internet speed or external service uptime.
+It also makes failures easier to debug since I can control exactly what response the component receives. I like that it
+lets me focus on validating my UI behavior instead of testing someone else’s API reliability.
+
+#### What are some common pitfalls when testing asynchronous code
+
+One common mistake is asserting too early before the async state update has finished, which causes flaky failures.
+Another issue is forgetting to return or await async helpers, so tests pass or fail for the wrong reason. I also learned
+that not resetting mocks between tests can leak behavior and make later test results confusing.
