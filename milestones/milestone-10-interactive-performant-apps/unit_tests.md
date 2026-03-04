@@ -211,3 +211,46 @@ lets me focus on validating my UI behavior instead of testing someone else’s A
 One common mistake is asserting too early before the async state update has finished, which causes flaky failures.
 Another issue is forgetting to return or await async helpers, so tests pass or fail for the wrong reason. I also learned
 that not resetting mocks between tests can leak behavior and make later test results confusing.
+
+---
+
+## Redux Testing
+
+### Testing Output
+
+I added Redux-focused tests in the milestone 10 React Native app:
+
+- `react-native-app/src/features/counter/__tests__/counterSlice.test.ts`
+- `react-native-app/src/features/counter/counterSlice.ts`
+
+What these tests validate:
+
+1. The reducer updates state correctly for a sync action (`addByAmount`).
+2. The async Redux action (`fetchGreeting`) dispatches pending/fulfilled flow and updates state.
+
+**Command used:**
+
+```bash
+npm test -- --runInBand
+```
+
+**Result summary:**
+
+<p align=center>
+  <img width="300" alt="Image" src="https://github.com/user-attachments/assets/d40d8705-1c3b-4c24-885a-3344150842a3" />
+</p>
+
+### Reflections in Redux Testing
+
+#### What was the most challenging part of testing Redux
+
+The trickiest part was testing the async action flow in a way that stays simple and deterministic. Instead of relying on
+a full Redux store, I used a small mocked `dispatch` and manually reduced each dispatched action into state. That made
+the test focused and reliable, but required careful setup to make sure the assertions matched the real action sequence.
+
+#### How do Redux tests differ from React component tests
+
+Redux tests focus on state transitions and action flow: given an action, does the reducer return the expected state, and
+does async logic dispatch the right actions in order. React component tests focus on rendered UI and user behavior:
+what appears on screen and how it changes after interactions. In short, Redux tests validate state logic, while React
+component tests validate user-visible behavior.
