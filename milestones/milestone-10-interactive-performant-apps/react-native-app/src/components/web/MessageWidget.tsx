@@ -1,20 +1,23 @@
 const React = require('react');
+const { Pressable, Text, View } = require('react-native');
 
 function MessageWidget() {
-  const [clicked, setClicked] = React.useState(false);
+  const [pressed, setPressed] = React.useState(false);
 
   return React.createElement(
-    'section',
+    View,
     null,
-    React.createElement('h1', null, 'Hello from React Testing Library'),
+    React.createElement(Text, { accessibilityRole: 'header' }, 'Hello from React Native Testing Library'),
     React.createElement(
-      'button',
-      { type: 'button', onClick: () => setClicked(true) },
-      'Click me'
+      Pressable,
+      {
+        accessibilityRole: 'button',
+        onPress: () => setPressed(true)
+      },
+      React.createElement(Text, null, 'Tap me')
     ),
-    clicked ? React.createElement('p', null, 'Button was clicked') : null
+    pressed ? React.createElement(Text, null, 'Button was tapped') : null
   );
 }
 
 module.exports = MessageWidget;
-
