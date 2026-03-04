@@ -47,7 +47,7 @@ describe('sum', () => {
 **Command used:**
 
 ```bash
-npm test -- --runInBand
+cd react-native-app && npm test -- --runInBand
 ```
 
 **Result:**
@@ -151,7 +151,7 @@ describe('MessageWidget', () => {
 **Command used:**
 
 ```bash
-npm test -- --runInBand
+cd react-native-app && npm test -- --runInBand
 ```
 
 **Result:**
@@ -189,7 +189,7 @@ is rendered and confirms `fetch` was called once with the expected URL.
 **Command used:**
 
 ```bash
-npm test -- --runInBand ApiDataWidget.test.js
+cd react-native-app && npm test -- --runInBand src/components/web/__tests__/ApiDataWidget.test.tsx
 ```
 
 **Result:**
@@ -231,7 +231,7 @@ What these tests validate:
 **Command used:**
 
 ```bash
-npm test -- --runInBand
+cd react-native-app && npm test -- --runInBand
 ```
 
 **Result summary:**
