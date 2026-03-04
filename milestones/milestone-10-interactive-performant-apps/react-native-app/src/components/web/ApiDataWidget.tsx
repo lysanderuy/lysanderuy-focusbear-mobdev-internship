@@ -1,4 +1,5 @@
 const React = require('react');
+const { Text, View } = require('react-native');
 const httpClient = require('../../api/httpClient');
 
 function ApiDataWidget() {
@@ -13,6 +14,7 @@ function ApiDataWidget() {
       try {
         const response = await httpClient.get('/todos/1');
         const data = response.data;
+
         if (isMounted) {
           setTitle(data.title);
         }
@@ -35,18 +37,18 @@ function ApiDataWidget() {
   }, []);
 
   if (loading) {
-    return React.createElement('p', null, 'Loading...');
+    return React.createElement(Text, null, 'Loading...');
   }
 
   if (error) {
-    return React.createElement('p', { role: 'alert' }, error);
+    return React.createElement(Text, { accessibilityRole: 'alert' }, error);
   }
 
   return React.createElement(
-    'section',
+    View,
     null,
-    React.createElement('h2', null, 'API Data'),
-    React.createElement('p', null, title)
+    React.createElement(Text, { accessibilityRole: 'header' }, 'API Data'),
+    React.createElement(Text, null, title)
   );
 }
 

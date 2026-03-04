@@ -30,7 +30,8 @@
     "oneline",
     "Afterwhich",
     "Flexbox",
-    "flexbox"
+    "flexbox",
+    "Pressable"
   ],
   "ignorePaths": ["node_modules/**", "dist/**"]
 }
