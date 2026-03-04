@@ -1,6 +1,6 @@
 const React = require('react');
 const { fireEvent, render, screen } = require('@testing-library/react');
-const MessageWidget = require('./MessageWidget');
+const MessageWidget = require('../MessageWidget');
 
 describe('MessageWidget', () => {
   test('renders the message heading', () => {

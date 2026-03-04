@@ -1,6 +1,6 @@
 const React = require('react');
 const { render, screen } = require('@testing-library/react');
-const ApiDataWidget = require('./ApiDataWidget');
+const ApiDataWidget = require('../ApiDataWidget');
 
 describe('ApiDataWidget', () => {
   test('fetches and displays data from the API', async () => {
