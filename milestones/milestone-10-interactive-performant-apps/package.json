@@ -8,8 +8,12 @@
   "jest": {
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ]
+      "<rootDir>/react-native-app/jest.setup.ts"
+    ],
+    "moduleNameMapper": {
+      "^react$": "<rootDir>/node_modules/react",
+      "^react-dom$": "<rootDir>/node_modules/react-dom"
+    }
   },
   "dependencies": {
     "react": "^19.2.0",
