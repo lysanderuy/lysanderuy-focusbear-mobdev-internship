@@ -1,4 +1,5 @@
 const React = require('react');
+const httpClient = require('../../api/httpClient');
 
 function ApiDataWidget() {
   const [loading, setLoading] = React.useState(true);
@@ -10,11 +11,8 @@ function ApiDataWidget() {
 
     async function loadData() {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
+        const response = await httpClient.get('/todos/1');
+        const data = response.data;
         if (isMounted) {
           setTitle(data.title);
         }

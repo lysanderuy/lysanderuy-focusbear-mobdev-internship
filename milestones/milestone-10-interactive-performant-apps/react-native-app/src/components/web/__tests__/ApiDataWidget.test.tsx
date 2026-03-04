@@ -1,13 +1,16 @@
 const React = require('react');
 const { render, screen } = require('@testing-library/react');
 const ApiDataWidget = require('../ApiDataWidget');
+const httpClient = require('../../../api/httpClient');
+
+jest.mock('../../../api/httpClient', () => ({
+  get: jest.fn()
+}));
 
 describe('ApiDataWidget', () => {
   test('fetches and displays data from the API', async () => {
-    const mockJson = jest.fn().mockResolvedValue({ title: 'Mocked API Title' });
-    global.fetch = jest.fn().mockResolvedValue({
-      ok: true,
-      json: mockJson
+    httpClient.get.mockResolvedValue({
+      data: { title: 'Mocked API Title' }
     });
 
     render(React.createElement(ApiDataWidget));
@@ -16,7 +19,7 @@ describe('ApiDataWidget', () => {
 
     expect(await screen.findByText(/mocked api title/i)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /api data/i })).toBeInTheDocument();
-    expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/todos/1');
+    expect(httpClient.get).toHaveBeenCalledTimes(1);
+    expect(httpClient.get).toHaveBeenCalledWith('/todos/1');
   });
 });
