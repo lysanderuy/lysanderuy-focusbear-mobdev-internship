@@ -31,7 +31,8 @@
     "Afterwhich",
     "Flexbox",
     "flexbox",
-    "Pressable"
+    "Pressable",
+    "unvirtualized"
   ],
   "ignorePaths": ["node_modules/**", "dist/**"]
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 import { AppHeader } from '@/components/app-header';
@@ -13,16 +13,54 @@ type TestResult = {
   passed: boolean;
 };
 
-export default function SandboxScreen() {
-  const { width } = useWindowDimensions();
+type LayoutMetrics = {
+  bodySize: number;
+  cardPadding: number;
+  horizontalPadding: number;
+  titleSize: number;
+};
+
+function getLayoutMetrics(width: number): LayoutMetrics {
   const isCompact = width < 380;
   const isTablet = width >= 768;
-  const horizontalPadding = isTablet ? 36 : isCompact ? 16 : 20;
-  const cardPadding = isTablet ? 20 : isCompact ? 14 : 16;
-  const titleSize = isTablet ? 24 : isCompact ? 20 : 22;
-  const bodySize = isTablet ? 16 : isCompact ? 14 : 15;
+
+  return {
+    horizontalPadding: isTablet ? 36 : isCompact ? 16 : 20,
+    cardPadding: isTablet ? 20 : isCompact ? 14 : 16,
+    titleSize: isTablet ? 24 : isCompact ? 20 : 22,
+    bodySize: isTablet ? 16 : isCompact ? 14 : 15,
+  };
+}
+
+type ResultCardProps = {
+  bodySize: number;
+  cardPadding: number;
+  result: TestResult;
+  titleSize: number;
+};
+
+const ResultCard = memo(function ResultCard({ bodySize, cardPadding, result, titleSize }: ResultCardProps) {
+  const statusStyle = result.passed ? styles.passText : styles.failText;
+
+  return (
+    <View style={[styles.block, { padding: cardPadding }]}>
+      <Text style={styles.label}>Milestone 10 Validation</Text>
+      <Text style={[styles.sectionTitle, { fontSize: titleSize }]}>{result.name}</Text>
+      <Text style={[statusStyle, { fontSize: bodySize }]}>{result.passed ? 'PASS' : 'FAIL'}</Text>
+      <Text style={styles.demoBody}>{result.details}</Text>
+    </View>
+  );
+});
+
+export default function SandboxScreen() {
+  const { width } = useWindowDimensions();
+  const { bodySize, cardPadding, horizontalPadding, titleSize } = useMemo(() => getLayoutMetrics(width), [width]);
 
   const [results, setResults] = useState<TestResult[]>([]);
+  const scrollContentStyle = useMemo(
+    () => [styles.content, { paddingHorizontal: horizontalPadding }],
+    [horizontalPadding]
+  );
 
   useEffect(() => {
     const run = async () => {
@@ -61,22 +99,26 @@ export default function SandboxScreen() {
     run();
   }, []);
 
+  const renderResult = useCallback(
+    (result: TestResult) => (
+      <ResultCard
+        key={result.name}
+        result={result}
+        cardPadding={cardPadding}
+        titleSize={titleSize}
+        bodySize={bodySize}
+      />
+    ),
+    [bodySize, cardPadding, titleSize]
+  );
+
   return (
     <View style={styles.screen}>
       <BrandBackground />
-      <ScrollView contentContainerStyle={[styles.content, { paddingHorizontal: horizontalPadding }]}>
+      <ScrollView contentContainerStyle={scrollContentStyle}>
         <AppHeader title="Sandbox" subtitle="Redux Tests" />
 
-        {results.map((result) => (
-          <View key={result.name} style={[styles.block, { padding: cardPadding }]}>
-            <Text style={styles.label}>Milestone 10 Validation</Text>
-            <Text style={[styles.sectionTitle, { fontSize: titleSize }]}>{result.name}</Text>
-            <Text style={[result.passed ? styles.passText : styles.failText, { fontSize: bodySize }]}>
-              {result.passed ? 'PASS' : 'FAIL'}
-            </Text>
-            <Text style={styles.demoBody}>{result.details}</Text>
-          </View>
-        ))}
+        {results.map(renderResult)}
       </ScrollView>
     </View>
   );
