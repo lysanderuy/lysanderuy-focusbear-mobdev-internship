@@ -35,7 +35,11 @@
     "unvirtualized",
     "posthog",
     "rneui",
-    "backgrounded"
+    "backgrounded",
+    "focusbear",
+    "xcrun",
+    "simctl",
+    "openurl"
   ],
   "ignorePaths": ["node_modules/**", "dist/**"]
 }
