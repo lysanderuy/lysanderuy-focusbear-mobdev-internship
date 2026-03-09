@@ -1,5 +1,74 @@
 # Onboarding Task - Setting up a React project
 
+## Components and Props Proof
+
+<p align="center">
+  <img width="650" alt="Image" src="https://github.com/user-attachments/assets/18f428f2-8189-471c-b804-993a3d10b47f" />
+</p>
+
+Code snippet showing dynamic prop usage with the `Focus Bear` name:
+
+```jsx
+// SandBox.jsx
+import HelloWorld from "../components/HelloWorld";
+
+<HelloWorld name="Focus Bear" />
+
+// HelloWorld.jsx
+export default function HelloWorld({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}
+```
+
+## Working with Lists and User Input Proof
+
+<p align="center">
+  <img width="650" alt="Image" src="https://github.com/user-attachments/assets/fb30fd82-e4c3-4b5d-8f71-d3a32c09dcb1" />
+</p>
+
+Code snippet showing form input, add button, and dynamic list rendering with `.map()`:
+
+```jsx
+// SandBox.jsx
+import ListInputForm from "../components/ListInputForm";
+
+<ListInputForm />
+
+// ListInputForm.jsx
+import React, { useState } from "react";
+
+export default function ListInputForm() {
+  const [inputValue, setInputValue] = useState("");
+  const [items, setItems] = useState([]);
+
+  const handleAddItem = () => {
+    const trimmedValue = inputValue.trim();
+    if (!trimmedValue) return;
+    setItems((previousItems) => [...previousItems, trimmedValue]);
+    setInputValue("");
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(event) => setInputValue(event.target.value)}
+      />
+      <button type="button" onClick={handleAddItem}>
+        Add
+      </button>
+
+      <ul>
+        {items.map((item, index) => (
+          <li key={`${item}-${index}`}>{item}</li>
+        ))}
+      </ul>
+    </>
+  );
+}
+```
+
 ## Reflections
 
 ### What challenges did you face during setup
