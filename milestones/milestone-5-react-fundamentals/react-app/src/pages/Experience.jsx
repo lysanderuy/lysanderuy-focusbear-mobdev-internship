@@ -14,6 +14,12 @@ const experienceEntries = [
     period: "Feb - Present",
     contracts: [],
   },
+  {
+    roleTitle: "Freelance Full-Stack Developer",
+    company: "Anek2",
+    period: "Jan - Present",
+    contracts: ["Current project: DOH Lab Form Automation."],
+  }
 ];
 
 export default function Experience() {
