@@ -32,7 +32,10 @@
     "Flexbox",
     "flexbox",
     "Pressable",
-    "unvirtualized"
+    "unvirtualized",
+    "posthog",
+    "rneui",
+    "backgrounded"
   ],
   "ignorePaths": ["node_modules/**", "dist/**"]
 }
