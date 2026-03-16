@@ -21,6 +21,11 @@ import Animated, {
 import { AppHeader } from '@/components/app-header';
 import { BrandBackground } from '@/components/brand-background';
 import { BrandColors, BrandFonts } from '@/constants/brand-theme';
+import {
+  getNativeDemoInfo,
+  isNativeDemoModuleAvailable,
+  type NativeDemoInfo,
+} from '@/lib/native-demo';
 import { captureSandboxError, isSentryEnabled } from '@/lib/sentry';
 
 export default function SandboxScreen() {
@@ -35,6 +40,13 @@ export default function SandboxScreen() {
   const [swipeStatus, setSwipeStatus] = useState('Swipe left or right');
   const [longPressStatus, setLongPressStatus] = useState('Press and hold');
   const [interactionStatus, setInteractionStatus] = useState('Scheduling deferred task...');
+  const [nativeModuleStatus, setNativeModuleStatus] = useState(
+    isNativeDemoModuleAvailable()
+      ? 'Ready to call the local Expo Module from JavaScript.'
+      : 'Local Expo Module not loaded. Use a development build instead of Expo Go to test it.'
+  );
+  const [nativeModuleResult, setNativeModuleResult] = useState<NativeDemoInfo | null>(null);
+  const [isRunningNativeModule, setIsRunningNativeModule] = useState(false);
   const [sentryStatus, setSentryStatus] = useState(
     isSentryEnabled
       ? 'Ready to send a test event to Sentry.'
@@ -111,6 +123,23 @@ export default function SandboxScreen() {
     setSentryStatus(`Captured test error: "${errorMessage}"`);
   };
 
+  const handleRunNativeModuleDemo = async () => {
+    setIsRunningNativeModule(true);
+    setNativeModuleResult(null);
+    setNativeModuleStatus('Calling native code...');
+
+    try {
+      const result = await getNativeDemoInfo();
+      setNativeModuleResult(result);
+      setNativeModuleStatus(`Native module responded from ${result.platform}.`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown native module error';
+      setNativeModuleStatus(message);
+    } finally {
+      setIsRunningNativeModule(false);
+    }
+  };
+
   return (
     <View style={styles.screen}>
       <BrandBackground />
@@ -157,6 +186,36 @@ export default function SandboxScreen() {
           <Text style={styles.demoBody}>
             Use this to delay expensive JS work until active interactions and animations finish.
           </Text>
+        </View>
+
+        <View style={[styles.block, { padding: cardPadding }]}>
+          <Text style={styles.label}>Expo Modules API</Text>
+          <Text style={[styles.sectionTitle, { fontSize: titleSize }]}>Custom Native Module</Text>
+          <Text style={[styles.statusText, { fontSize: bodySize }]}>{nativeModuleStatus}</Text>
+          <Text style={styles.demoBody}>
+            This demo calls a local Expo Module. It works in a development build and gracefully
+            falls back when the native module is unavailable.
+          </Text>
+          {nativeModuleResult ? (
+            <View style={styles.resultCard}>
+              <Text style={styles.demoTitle}>Native Response</Text>
+              <Text style={styles.demoBody}>Platform: {nativeModuleResult.platform}</Text>
+              <Text style={styles.demoBody}>Message: {nativeModuleResult.message}</Text>
+            </View>
+          ) : null}
+          <Pressable
+            accessibilityRole="button"
+            disabled={isRunningNativeModule}
+            onPress={handleRunNativeModuleDemo}
+            style={({ pressed }) => [
+              styles.sentryButton,
+              pressed ? styles.sentryButtonPressed : null,
+              isRunningNativeModule ? styles.sentryButtonDisabled : null,
+            ]}>
+            <Text style={styles.sentryButtonText}>
+              {isRunningNativeModule ? 'Calling Native Module...' : 'Run Native Module Demo'}
+            </Text>
+          </Pressable>
         </View>
 
         <View style={[styles.block, { padding: cardPadding }]}>
@@ -245,6 +304,15 @@ const styles = StyleSheet.create({
     backgroundColor: BrandColors.accent,
     marginTop: 2,
     marginBottom: 4,
+  },
+  resultCard: {
+    borderRadius: 14,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    backgroundColor: 'rgba(30,38,22,0.62)',
+    borderWidth: 1,
+    borderColor: 'rgba(138,154,91,0.25)',
+    gap: 4,
   },
   sentryButton: {
     marginTop: 6,
