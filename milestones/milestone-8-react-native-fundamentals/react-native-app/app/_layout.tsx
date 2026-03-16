@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { BrandColors } from '@/constants/brand-theme';
 import { LanguageProvider } from '@/contexts/language-context';
+import '@/lib/sentry';
 
 export const unstable_settings = {
   anchor: '(tabs)',
