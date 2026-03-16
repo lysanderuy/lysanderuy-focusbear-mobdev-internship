@@ -6,6 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { BrandColors } from '@/constants/brand-theme';
+import { LanguageProvider } from '@/contexts/language-context';
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -16,20 +17,22 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="modal"
-            options={{
-              presentation: 'modal',
-              headerShown: false,
-              contentStyle: { backgroundColor: BrandColors.bgBase },
-            }}
-          />
-        </Stack>
-        <StatusBar style="light" />
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="modal"
+              options={{
+                presentation: 'modal',
+                headerShown: false,
+                contentStyle: { backgroundColor: BrandColors.bgBase },
+              }}
+            />
+          </Stack>
+          <StatusBar style="light" />
+        </ThemeProvider>
+      </LanguageProvider>
     </GestureHandlerRootView>
   );
 }
