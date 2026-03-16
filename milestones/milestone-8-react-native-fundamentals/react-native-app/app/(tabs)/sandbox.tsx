@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   Animated as RNAnimated,
   InteractionManager,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -20,6 +21,7 @@ import Animated, {
 import { AppHeader } from '@/components/app-header';
 import { BrandBackground } from '@/components/brand-background';
 import { BrandColors, BrandFonts } from '@/constants/brand-theme';
+import { captureSandboxError, isSentryEnabled } from '@/lib/sentry';
 
 export default function SandboxScreen() {
   const { width } = useWindowDimensions();
@@ -33,6 +35,11 @@ export default function SandboxScreen() {
   const [swipeStatus, setSwipeStatus] = useState('Swipe left or right');
   const [longPressStatus, setLongPressStatus] = useState('Press and hold');
   const [interactionStatus, setInteractionStatus] = useState('Scheduling deferred task...');
+  const [sentryStatus, setSentryStatus] = useState(
+    isSentryEnabled
+      ? 'Ready to send a test event to Sentry.'
+      : 'Add EXPO_PUBLIC_SENTRY_DSN to enable Sentry logging.'
+  );
 
   const swipeX = useSharedValue(0);
   const holdScale = useSharedValue(1);
@@ -99,6 +106,11 @@ export default function SandboxScreen() {
     transform: [{ scale: holdScale.value }],
   }));
 
+  const handleSendSentryEvent = () => {
+    const errorMessage = captureSandboxError();
+    setSentryStatus(`Captured test error: "${errorMessage}"`);
+  };
+
   return (
     <View style={styles.screen}>
       <BrandBackground />
@@ -145,6 +157,28 @@ export default function SandboxScreen() {
           <Text style={styles.demoBody}>
             Use this to delay expensive JS work until active interactions and animations finish.
           </Text>
+        </View>
+
+        <View style={[styles.block, { padding: cardPadding }]}>
+          <Text style={styles.label}>Sentry Error Reporting</Text>
+          <Text style={[styles.sectionTitle, { fontSize: titleSize }]}>Test Error Logging</Text>
+          <Text style={[styles.statusText, { fontSize: bodySize }]}>{sentryStatus}</Text>
+          <Text style={styles.demoBody}>
+            Trigger a handled test error and confirm it appears in your Sentry project event feed.
+          </Text>
+          <Pressable
+            accessibilityRole="button"
+            disabled={!isSentryEnabled}
+            onPress={handleSendSentryEvent}
+            style={({ pressed }) => [
+              styles.sentryButton,
+              pressed ? styles.sentryButtonPressed : null,
+              !isSentryEnabled ? styles.sentryButtonDisabled : null,
+            ]}>
+            <Text style={styles.sentryButtonText}>
+              {isSentryEnabled ? 'Send Sentry Test Error' : 'Sentry DSN Required'}
+            </Text>
+          </Pressable>
         </View>
       </ScrollView>
     </View>
@@ -211,5 +245,25 @@ const styles = StyleSheet.create({
     backgroundColor: BrandColors.accent,
     marginTop: 2,
     marginBottom: 4,
+  },
+  sentryButton: {
+    marginTop: 6,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    backgroundColor: BrandColors.accent,
+    alignItems: 'center',
+  },
+  sentryButtonPressed: {
+    opacity: 0.85,
+  },
+  sentryButtonDisabled: {
+    backgroundColor: 'rgba(138,154,91,0.35)',
+  },
+  sentryButtonText: {
+    color: BrandColors.bgBase,
+    fontSize: 14,
+    fontWeight: '700',
+    fontFamily: BrandFonts.body,
   },
 });
