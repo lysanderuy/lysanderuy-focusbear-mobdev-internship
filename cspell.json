@@ -39,7 +39,11 @@
     "focusbear",
     "xcrun",
     "simctl",
-    "openurl"
+    "openurl",
+    "localisation",
+    "Localisation",
+    "localised",
+    "localised"
   ],
   "ignorePaths": ["node_modules/**", "dist/**"]
 }
